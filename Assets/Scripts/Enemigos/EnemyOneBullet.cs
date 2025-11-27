@@ -1,12 +1,11 @@
 using UnityEngine;
 
 //DIRECCION VELOCIDAD TIME DELTA TIME
-public class Bullet : MonoBehaviour
-{   
-    public float Speed;
-
+public class EnemyOneBullet : MonoBehaviour
+{
+    public float Speed = 3f;
     void Start()
-    {       
+    {
         Destroy(gameObject, 5);
     }
 
@@ -17,7 +16,7 @@ public class Bullet : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "Player" || collision.tag != "Bullet")
+        if (collision.CompareTag("Player"))
             Destroy(gameObject);
     }
 }
