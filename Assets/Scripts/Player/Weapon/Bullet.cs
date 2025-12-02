@@ -1,28 +1,69 @@
+锘縰sing System.Collections.Generic;
 using UnityEngine;
 
 /*Contenido
 Velodidad de la bala
-Tiempo de existencia sin colisiones espec韋icas
-Condiciones de comparaci髇 por colisi髇 por Trigger (Destrucci髇 por 鷑ica colisi髇)
+Tiempo de existencia sin colisiones espec铆ficas
+Condiciones de comparaci贸n por colisi贸n por Trigger (Destrucci贸n por 煤nica colisi贸n)
 */
 
 public class Bullet : MonoBehaviour
-{   
-    public float Speed;
-
+{
+    private Transform targetEnemy;
+    [SerializeField] private float Speed;
+    [SerializeField] float minDistance = 2f; // rango para detectar enemigos    
+    private List<string> tagslist = new List<string>()
+    {     "Enemy", "EnemyTwo", "BulletEnemyOne" };
     void Start()
-    {       
+    {     
         Destroy(gameObject, 5);
     }
 
     void Update()
     {
-        transform.position += transform.up * Speed * Time.deltaTime; //DIRECCION VELOCIDAD TIME DELTA TIME
+        EnemyNearby();
+        if (targetEnemy != null)                                                                //Si se detecta que uno de los tags est谩 cerca 銈ㄣ儘銉熴兗
+        {
+            Vector2 direction = (targetEnemy.position - transform.position).normalized;         // 1. Encontrar direcci贸n          
+            transform.up = Vector2.Lerp(transform.up, direction, Time.deltaTime * (Speed + 3));   // 2. Girar bala hacia el enemigo
+            transform.position += transform.up * Speed * Time.deltaTime;                        // 3. Avanzar
+        }
+        else
+        {
+            transform.position += transform.up * Speed * Time.deltaTime; //DIRECCION VELOCIDAD TIME DELTA TIME // Movimiento normal
+        }
     }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") || collision.CompareTag("EnemyTwo")) //Comparar contacto con los enemigos para destruir la bala
-            Destroy(gameObject);
+        foreach (string tag in tagslist)
+        {
+            if (collision.CompareTag(tag))
+            {
+                Destroy(gameObject);
+            }
+        }
+        //if (collision.CompareTag("Enemy")     || collision.CompareTag("EnemyTwo") ||
+        //    collision.CompareTag("MuroNegro"))
+        //    Destroy(gameObject);
+    }
+    public void EnemyNearby()
+    {        
+        Transform nearest = null; //un m茅todo del GameObject vac铆o 銈ㄣ儘銉熴兗
+
+        foreach (string tag in tagslist)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(tag); //Array, contiene los tags
+
+            foreach (GameObject tags in enemies)
+            {
+                float dist = Vector2.Distance(transform.position, tags.transform.position);
+
+                if ( dist < minDistance)
+                {                    
+                    nearest = tags.transform; //Guardamos la ubicaci贸n encontrada en Transform vac铆o銆�銈ㄣ儘銉熴兗
+                }
+            }
+        }
+        targetEnemy = nearest; // si es null, no hay enemigos en rango 銈ㄣ儘銉熴兗
     }
 }

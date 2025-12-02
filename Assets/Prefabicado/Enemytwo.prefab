@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1475010229154160274}
   - component: {fileID: 4821011040503499053}
   - component: {fileID: 5301595064153060017}
-  - component: {fileID: 5911357846841822249}
   - component: {fileID: 585332049399575789}
+  - component: {fileID: 6968103579134104261}
   m_Layer: 0
   m_Name: Enemytwo
   m_TagString: EnemyTwo
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.472, y: -0.511, z: 0}
-  m_LocalScale: {x: 0.122896925, y: 0.122896925, z: 0.122896925}
+  m_LocalScale: {x: 0.162, y: 0.162, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -177,23 +177,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5911357846841822249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4731636481565237492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f3c3c342efbb249b383e4f27c0e592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnPrefabEnemy: {fileID: 4731636481565237492}
-  Player: {fileID: 0}
-  radioSpawn: 10
-  espera: 5
-  life: 3
 --- !u!114 &585332049399575789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,5 +189,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576dbae65f4d530489ab27979f8b4ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 4
+  Enemy: {fileID: 4731636481565237492}
+  speed: 5
+  lifeEnemy: 3
+--- !u!114 &6968103579134104261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731636481565237492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08a10ed89a2ff642b29d8c31d85b940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 4660038505446705998, guid: 990309967f3758944bfe94633826026a, type: 3}
+  deathEnemy: {fileID: 2170162157530634405, guid: 321b5c0bc663ec14a9f0cab450b20cd4, type: 3}

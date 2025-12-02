@@ -1,0 +1,413 @@
+fileFormatVersion: 2
+guid: a3452bf8442f74b40b9aa55610c7c695
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7959573375341278931
+    second: bombaDeath_0
+  - first:
+      213: 7479846390837241970
+    second: bombaDeath_1
+  - first:
+      213: -8171764443910022688
+    second: bombaDeath_2
+  - first:
+      213: -6831898785101405496
+    second: bombaDeath_3
+  - first:
+      213: 7688794164558259653
+    second: bombaDeath_4
+  - first:
+      213: -2906281660083364891
+    second: bombaDeath_5
+  - first:
+      213: 5184601896201070249
+    second: bombaDeath_6
+  - first:
+      213: 8144846446878455168
+    second: bombaDeath_7
+  - first:
+      213: 5643071817921197316
+    second: bombaDeath_8
+  - first:
+      213: 4939119326575085021
+    second: bombaDeath_9
+  - first:
+      213: -6200187517169941048
+    second: bombaDeath_10
+  - first:
+      213: 8414652186657018587
+    second: bombaDeath_11
+  - first:
+      213: 7426219855499352836
+    second: bombaDeath_12
+  - first:
+      213: -181333982351792837
+    second: bombaDeath_13
+  - first:
+      213: 6377603130864985708
+    second: bombaDeath_14
+  - first:
+      213: -1916373821030013145
+    second: bombaDeath_15
+  - first:
+      213: -5341992035689025328
+    second: bombaDeath_16
+  - first:
+      213: 7716662986960977225
+    second: bombaDeath_17
+  - first:
+      213: 3245640214746014572
+    second: bombaDeath_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bombaDeath_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 129
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d29402fcf2ae98190800000000000000
+      internalID: -7959573375341278931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombaDeath_2
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e9539cb88f089e80800000000000000
+      internalID: -8171764443910022688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombaDeath_3
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 0
+        width: 134
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c2ab9c70483031a0800000000000000
+      internalID: -6831898785101405496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombaDeath_4
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 0
+        width: 128
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c567914e8514ba60800000000000000
+      internalID: 7688794164558259653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombaDeath_6
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 0
+        width: 125
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a6a1e494f763f740800000000000000
+      internalID: 5184601896201070249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombaDeath_8
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 2
+        width: 127
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 405f53d8be7305e40800000000000000
+      internalID: 5643071817921197316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombaDeath_12
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 0
+        width: 135
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40bddfedc9b3f0760800000000000000
+      internalID: 7426219855499352836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombaDeath_13
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 2
+        width: 109
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b35e63c24b5cb7df0800000000000000
+      internalID: -181333982351792837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombaDeath_15
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 4
+        width: 120
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 727e5a4c92ca765e0800000000000000
+      internalID: -1916373821030013145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bombaDeath_18
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 4
+        width: 104
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63a8a44494da0d20800000000000000
+      internalID: 3245640214746014572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3aeecbc6ed296714ca2e05a5d51e0a5b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bombaDeath_0: -7959573375341278931
+      bombaDeath_1: 7479846390837241970
+      bombaDeath_10: -6200187517169941048
+      bombaDeath_11: 8414652186657018587
+      bombaDeath_12: 7426219855499352836
+      bombaDeath_13: -181333982351792837
+      bombaDeath_14: 6377603130864985708
+      bombaDeath_15: -1916373821030013145
+      bombaDeath_16: -5341992035689025328
+      bombaDeath_17: 7716662986960977225
+      bombaDeath_18: 3245640214746014572
+      bombaDeath_2: -8171764443910022688
+      bombaDeath_3: -6831898785101405496
+      bombaDeath_4: 7688794164558259653
+      bombaDeath_5: -2906281660083364891
+      bombaDeath_6: 5184601896201070249
+      bombaDeath_7: 8144846446878455168
+      bombaDeath_8: 5643071817921197316
+      bombaDeath_9: 4939119326575085021
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

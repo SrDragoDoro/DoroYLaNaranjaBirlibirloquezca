@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 /*Contenido
 Velodidad de la bala
@@ -7,7 +8,11 @@ Condiciones de comparación por colisión por Trigger (Destrucción por única colis
 
 public class EnemyOneBullet : MonoBehaviour
 {
-    public float Speed = 3f;
+    [SerializeField] private float Speed = 3f;
+    private List<string> tagslistE = new List<string>()
+    {     "Player", "ShotPlayer" };
+
+
     void Start()
     {
         Destroy(gameObject, 5);
@@ -20,7 +25,12 @@ public class EnemyOneBullet : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-            Destroy(gameObject);
+        foreach (string tag in tagslistE)        
+        {           
+            if (collision.CompareTag(tag))
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

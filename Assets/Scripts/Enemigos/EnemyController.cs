@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /* Contenido
@@ -10,61 +11,56 @@ Condiciones de comparación por colisión por Trigger (Destrucción por vida)
 */
 
 public class EnemyController : MonoBehaviour
-{
+{    
     [SerializeField] private GameObject SpawnPrefabEnemy;
     [SerializeField] private GameObject Player;
     [SerializeField] private float radioSpawn = 5f; 
-    [SerializeField] private float espera = 3f;
-    [SerializeField] public int life = 4;
-    private bool corutineActivate; 
+    [SerializeField] private float espera = 3f;    
+    private bool spawnActivate = false;
+    private Coroutine currentSpawnRoutine; //Cortina de refetencia
 
     void Update()
-    {        
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            corutineActivate = !corutineActivate;
+            spawnActivate = !spawnActivate;
 
-            if (corutineActivate)
-            {                
-                StartCoroutine("CortinaDeSpawneo");
-                //Destroy(SpawnPrefabEnemy);
-                print("Spawner Activado");
-            }
-            else
+            switch (spawnActivate)
             {
-                StopCoroutine("CortinaDeSpawneo");
-                Destroy(SpawnPrefabEnemy);
-                print("Spawner Desactivado");
+                case true:
+                    currentSpawnRoutine = StartCoroutine(CortinaDeSpawneo()); //Hacemos uso de la referencia (ahora no está vacia)
+                    print("Spawner Activado");
+                    break;
+
+                case false:                    
+                    if (currentSpawnRoutine != null)           // Detiene usando la referencia 
+                    {
+                        StopCoroutine(currentSpawnRoutine);
+                        currentSpawnRoutine = null;         // Limpia la referencia
+                    }
+                    print("Spawner Desactivado");
+                    break;
+                default:                    
             }
         }
-    }    
+    }
 
-    public void Spawner() 
-    {       
-        float x = Random.Range(-1f, 1f); 
+    public void Spawner()
+    {
+        float x = Random.Range(-1f, 1f);
         float y = Random.Range(-1f, 1f);
-        
+
         Vector2 direccion = new Vector2(x, y).normalized; //Normalizamos los ejes "x" como "y"     
-        Vector2 spawnPos = (Vector2)Player.transform.position + direccion * radioSpawn;        
-        Instantiate(SpawnPrefabEnemy, spawnPos, SpawnPrefabEnemy.transform.rotation);        
+        Vector2 spawnPos = (Vector2)Player.transform.position + direccion * radioSpawn;
+        Instantiate(SpawnPrefabEnemy, spawnPos, SpawnPrefabEnemy.transform.rotation);       
     }
 
     IEnumerator CortinaDeSpawneo() //Uso de cortina (en Seg.) para evitar saturación de enemigos
     {
-        while (corutineActivate)
+        while (spawnActivate)
         {
             Spawner();
             yield return new WaitForSeconds(espera);
-        }       
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        print("trigger entro: " + collision.tag);
-        if (collision.CompareTag("ShotPlayer")) //revisar collision.Tag == "Bullet" hay otros!
-        {
-            life--;
-            if (life <= 0) Destroy(gameObject);
-        } 
+        }
     }
 }

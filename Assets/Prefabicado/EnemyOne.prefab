@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 42295478795931021}
   - component: {fileID: 7759168837055153579}
   - component: {fileID: 9104341158986602804}
-  - component: {fileID: 2001278373299264681}
   - component: {fileID: 9201789714571075781}
   - component: {fileID: 3957333584394542669}
   m_Layer: 0
@@ -178,23 +177,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2001278373299264681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7474887824286960025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f3c3c342efbb249b383e4f27c0e592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnPrefabEnemy: {fileID: 7474887824286960025}
-  Player: {fileID: 0}
-  radioSpawn: 5
-  espera: 3
-  life: 4
 --- !u!114 &9201789714571075781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576dbae65f4d530489ab27979f8b4ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  Enemy: {fileID: 7474887824286960025}
   speed: 1
+  lifeEnemy: 4
 --- !u!114 &3957333584394542669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,5 +205,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefabEnemy: {fileID: 5043139937888268952, guid: 0ea82e697dabb4e4aab24387b258ce78, type: 3}
-  Player: {fileID: 0}
-  intervalo: 1
+  intervalo: 3
