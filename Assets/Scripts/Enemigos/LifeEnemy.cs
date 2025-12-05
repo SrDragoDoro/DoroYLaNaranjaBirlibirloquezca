@@ -3,7 +3,7 @@
 public class LifeEnemy : MonoBehaviour
 {
     [SerializeField] private int lifeEnemy = 4;
-    private static int NumberEnemyDeath;       //Contador est�tico para el numero de enemigos muertos
+    private static int NumberEnemyDeath;       //Contador estatico para el numero de enemigos muertos
     private const int RequiredEnemyDeath = 25; //Numero requerido de enemigos muertos para activar la invocacion del jefe
 
     public void CountEnemyDeath()

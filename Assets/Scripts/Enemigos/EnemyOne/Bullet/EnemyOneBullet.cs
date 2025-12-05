@@ -1,21 +1,23 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 /*Contenido
 Velodidad de la bala
-Tiempo de existencia sin colisiones específicas
-Condiciones de comparación por colisión por Trigger (Destrucción por única colisión)
+Tiempo de existencia sin colisiones especï¿½ficas
+Condiciones de comparaciï¿½n por colision por Trigger (Destrucciï¿½n por ï¿½nica colisiï¿½n)
 */
 
 public class EnemyOneBullet : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController; //Referencia a PlayerController para acceder al mï¿½todo de vida
     [SerializeField] private float Speed = 3f;
-    private List<string> tagslistE = new List<string>()
+    [SerializeField] private float Damage = 10f;
+    [SerializeField] private float DestroyBullet = 5f;
+    private List<string> tagslistE = new List<string>
     {     "Player", "ShotPlayer" };
-
 
     void Start()
     {
-        Destroy(gameObject, 5);
+        Destroy(gameObject, DestroyBullet);
     }
 
     void Update()
@@ -25,11 +27,15 @@ public class EnemyOneBullet : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        foreach (string tag in tagslistE)        
-        {           
+        foreach (string tag in tagslistE)
+        {
             if (collision.CompareTag(tag))
             {
                 Destroy(gameObject);
+                if (collision.CompareTag("Player"))
+                {
+                    playerController.PlayerLife(Damage); //Causar dano al jugador al colisionar con la bala
+                }
             }
         }
     }
