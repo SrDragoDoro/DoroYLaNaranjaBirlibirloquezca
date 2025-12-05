@@ -22,7 +22,7 @@ public class OhNo : MonoBehaviour
 
         string doroASCII = @"
                                                                                                                   
-                                                                                                                  
+                                                                                                                 
                                                                                                                   
                                                                                                                   
                                                                                                                   
