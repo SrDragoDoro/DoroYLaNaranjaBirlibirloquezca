@@ -16,7 +16,7 @@ public struct PlayerStatistics //Sin asignar
     {
         Speed = _speed;
         lifePlayer = _lifePlayer;
-       
+        
     }
 }
 
@@ -28,12 +28,12 @@ public class PlayerController : MonoBehaviour
     private bool move = false; //Simula un swichs de cambio para no hacer un movimiento constante al dar click
     private Vector2 destiny;
 
-    //[SerializeField] private float lifePlayer = 50f;
-    //[SerializeField] private float Speed;
+    [SerializeField] private float lifePlayer;
+    [SerializeField] private float Speed;
  
     private void Start()
     {
-        Statistics = new PlayerStatistics(5,50);
+        Statistics = new PlayerStatistics(Speed, lifePlayer);
     }
     void Update()
     {        

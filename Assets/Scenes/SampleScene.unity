@@ -51517,11 +51517,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f3c3c342efbb249b383e4f27c0e592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPrefabEnemy: {fileID: 7474887824286960025, guid: c63dfdc71538c9f4c9279fec039c8175, type: 3}
+  tilemap: {fileID: 859619319}
   EnemyPrefabEnemy:
   - {fileID: 7474887824286960025, guid: c63dfdc71538c9f4c9279fec039c8175, type: 3}
   - {fileID: 4731636481565237492, guid: 2cce6130d2001ee4597b4160d74ad706, type: 3}
-  tilemap: {fileID: 859619319}
 --- !u!114 &1006861862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290756,14 +290755,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4436707636444298290, guid: 990309967f3758944bfe94633826026a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4660038505446705998, guid: 990309967f3758944bfe94633826026a, type: 3}
-      propertyPath: lifePlayer
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8345895011211369529, guid: 990309967f3758944bfe94633826026a, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

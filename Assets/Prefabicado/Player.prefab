@@ -107,9 +107,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541df069fea98f541bc8ad584bbf6c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 6
-  lifePlayer: 50
+  Statistics:
+    Speed: 5
+    lifePlayer: 100
   PlayerWalk: {fileID: 2540231828414736392}
+  lifePlayer: 100
+  Speed: 6
 --- !u!50 &3562712803913055893
 Rigidbody2D:
   serializedVersion: 5
@@ -232,7 +235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2868180645895322425
 Transform:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class EnemyController : MonoBehaviour
     {
         currentQuantity = 0;
     }
+
     void Update()
     {
         SpawnControll();

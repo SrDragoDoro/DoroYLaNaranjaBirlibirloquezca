@@ -2,9 +2,10 @@
 
 public class BossFollow : MonoBehaviour
 {
-    private GameObject player;                      // Referencia del Player    
-    [SerializeField] private float speed = 1f;      // Velocidad del enemigo
-    [SerializeField] private static int lifeBoss = 100;    // Vida del Boss                                             
+    private GameObject player;                               // Referencia del Player
+    [SerializeField] private static int lifeBoss = 100;
+    [SerializeField] private float speed = 1f;      
+                                               
 
     private void Start()
     {
@@ -13,7 +14,7 @@ public class BossFollow : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = (Vector2)player.transform.position - (Vector2)transform.position;                // 1. Calcular direcci�n hacia el jugador (Vector2)        
+        Vector2 direction = (Vector2)player.transform.position - (Vector2)transform.position;                // 1. Calcular dirección hacia el jugador (Vector2)        
         direction = direction.normalized;                                                                    // 2. Normalizar la direcci�n
         transform.position = (Vector2)transform.position + direction * speed * Time.deltaTime;               // 3. Mover al enemigo     
     }
