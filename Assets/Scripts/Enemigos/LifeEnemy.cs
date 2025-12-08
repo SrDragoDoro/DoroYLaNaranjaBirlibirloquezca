@@ -2,24 +2,14 @@
 
 public class LifeEnemy : MonoBehaviour
 {
-
-    [SerializeField] private int lifeEnemy = 4;
-     //Contador estatico para el numero de enemigos muertos
-    private const int RequiredEnemyDeath = 25; //Numero requerido de enemigos muertos para activar la invocacion del jefe
+    [SerializeField] private int lifeEnemy = 4;    
+    private const int RequiredEnemyDeath = 50; //Numero requerido de enemigos muertos para activar la invocacion del jefe
 
     public void CountEnemyDeath()
     {
         GameManager.NumberEnemyDeath++;
-        print("Numero de enemigos muertos: " + GameManager.NumberEnemyDeath);
-    }
-
-    /*public void WinCondition()
-    {
-        if (GameManager.NumberEnemyDeath >= RequiredEnemyDeath)
-        {
-            print("¡Ahora debemos acabar con el m�s fuerte!");
-        }
-    }*/
+        print("Enemigos muertos: " + GameManager.NumberEnemyDeath);
+    }   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,14 +22,13 @@ public class LifeEnemy : MonoBehaviour
             {
           
                 Destroy(gameObject);
-                CountEnemyDeath();
-                EnemyController.currentQuantity--;
-                //WinCondition();
+                CountEnemyDeath();                               
             }
         }
     }
 
-    public static int NumberEnemyDeathGet()
+    //Condiciones para el boss
+    public static int NumberEnemyDeathGet() 
     {
         return GameManager.NumberEnemyDeath;
     }

@@ -165,7 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257ef6e994ed963438f9046f3c35c5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 4660038505446705998, guid: 990309967f3758944bfe94633826026a, type: 3}
   Speed: 4
   Damage: 10
-  DestroyBullet: 5
+  DestroyBullet: 10

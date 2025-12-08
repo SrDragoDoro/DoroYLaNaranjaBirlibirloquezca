@@ -9,9 +9,8 @@ Hacer que el enemigo recorra el vector resultante
 
 public class EnemyFollow : LifeEnemy
 {
-    private GameObject player;                      // Referencia del Player    
-
-    [SerializeField] private float speed = 1f;    // Velocidad del enemigo    
+    [SerializeField] private float speed = 1f;    // Velocidad del enemigo  
+    private GameObject player;                    // Referencia del Player         
 
     private void Start()
     {
@@ -21,7 +20,7 @@ public class EnemyFollow : LifeEnemy
     void Update()
     {
         Vector2 direction = (Vector2)player.transform.position - (Vector2)transform.position;           // 1. Calcular direcci�n hacia el jugador (Vector2)        
-        direction = direction.normalized;                                                                    // 2. Normalizar la direccion
-        transform.position = (Vector2)transform.position + direction * speed * Time.deltaTime;  // 3. Mover al enemigo     
+        direction = direction.normalized;                                                               // 2. Normalizar la direccion
+        transform.position = (Vector2)transform.position + direction * speed * Time.deltaTime;          // 3. Mover al enemigo     
     }
 }

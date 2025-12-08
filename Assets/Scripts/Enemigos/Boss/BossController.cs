@@ -14,7 +14,7 @@ public class BossController : MonoBehaviour
 {
     [SerializeField] private GameObject SpawnPrefabEnemy;
     [SerializeField] private GameObject Player;
-    [SerializeField] private const float radioSpawn = 6f;
+    [SerializeField] private const float radioSpawn = 6f; //cambiar a tilemap
     private bool BossHave = false;
 
     void Update()

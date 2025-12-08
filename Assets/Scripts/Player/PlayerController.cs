@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 /*Contenido
@@ -5,29 +6,34 @@ Control de movimento (tipo MOBA)
 Creación de disparo y acción de disparo
 Vida del player
 */
-[SerializeField] public struct PlayerStatistics //Sin asignar
+
+[Serializable] 
+public struct PlayerStatistics //Sin asignar
 {
     public float Speed;
     public float lifePlayer;
-    public void Statistics(float _speed, float _lifePlayer)
+    public PlayerStatistics(float _speed, float _lifePlayer)
     {
         Speed = _speed;
         lifePlayer = _lifePlayer;
        
     }
 }
+
 public class PlayerController : MonoBehaviour
-{     
-    [SerializeField] private float Speed;
-    [SerializeField] private float lifePlayer = 50f;
+{
+    public PlayerStatistics Statistics;
+
+    [SerializeField] private Animator PlayerWalk;
     private bool move = false; //Simula un swichs de cambio para no hacer un movimiento constante al dar click
     private Vector2 destiny;
 
-    [SerializeField] private Animator PlayerWalk;
-
+    //[SerializeField] private float lifePlayer = 50f;
+    //[SerializeField] private float Speed;
+ 
     private void Start()
     {
-        print(LifeEnemy.NumberEnemyDeathGet());
+        Statistics = new PlayerStatistics(5,50);
     }
     void Update()
     {        
@@ -61,19 +67,19 @@ public class PlayerController : MonoBehaviour
     public void MoveToDirection()
     {      
         Vector3 moveDirection = (destiny - (Vector2)transform.position).normalized; 
-        transform.position += moveDirection * Speed * Time.deltaTime;
+        transform.position += moveDirection * Statistics.Speed * Time.deltaTime;
 
         if (Vector2.Distance(transform.position, destiny) <= 0.1f)
             move = false;
-    }    
+    }   
 
     public void PlayerLife(float damage)
     {
         bool txt = false;
 
-        lifePlayer -= damage;
-        print("Tu vida actual es: " + lifePlayer);
-        if (lifePlayer <= 0)
+        Statistics.lifePlayer -= damage;
+        print("Tu vida actual es: " + Statistics.lifePlayer);
+        if (Statistics.lifePlayer <= 0)
         {
             print("Has muerto D:");
             print("¡Tu universo ha sido invadido!");
@@ -84,8 +90,9 @@ public class PlayerController : MonoBehaviour
             }            
         }
     }
+
     public float GetLifePlayer()
     {
-        return lifePlayer;
+        return Statistics.lifePlayer;
     }
 }

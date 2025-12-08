@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 /* Contenido
 Control de Spawn
@@ -11,21 +12,29 @@ Condiciones de comparación por colisión por Trigger (Destrucción por vida)
 */
 
 public class EnemyController : MonoBehaviour
-{
-    [SerializeField] private GameObject SpawnPrefabEnemy;//->lISTA O ARREGLO DE VARIOS TIPOS DE ENEMIGOS Y QUE SE ECOJA AL AZAR UNO DE ELLOSPARA SPAWNEAR
-    //-> cauantos enemigos se spoawnean por tick;
-    [SerializeField] private GameObject Player;
-    [SerializeField] private float radioSpawn = 5f;
-    [SerializeField] private const float espera = 3f;
+{  
+    [SerializeField] private Tilemap tilemap;
+    [SerializeField] private GameObject[] EnemyPrefabEnemy;
+    [SerializeField] private const float espera = 3f;   //Tiempo de espera entre spawneos
+
+    public const int Maxquantrity = 125;                //Cantidad maxima de enemigos en escena
+    public static int currentQuantity;                  //Cantidad actual de enemigos en escena
+    
     private bool spawnActivate = false;
-    private Coroutine currentSpawnRoutine; //Cortina de refetencia
+    private Coroutine currentSpawnRoutine;              //Cortina de refetencia
 
-    public int Maxquantrity;
-    public static int currentQuantity;
-
+    private void Start()
+    {
+        currentQuantity = 0;
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        SpawnControll();
+    }
+
+    public void SpawnControll()
+    {
+        if (Input.GetKeyDown(KeyCode.F8))
         {
             spawnActivate = !spawnActivate;
 
@@ -45,26 +54,56 @@ public class EnemyController : MonoBehaviour
                     break;
                 default:
             }
-        }
-    }
-
-    public void Spawner()
-    {
-        float x = Random.Range(-1f, 1f);
-        float y = Random.Range(-1f, 1f);
-
-        Vector2 direccion = new Vector2(x, y).normalized; //Normalizamos los ejes "x" como "y"     
-        Vector2 spawnPos = (Vector2)Player.transform.position + direccion * radioSpawn;
-        Instantiate(SpawnPrefabEnemy, spawnPos, SpawnPrefabEnemy.transform.rotation);
-        currentQuantity++;
+        }        
     }
 
     IEnumerator CortinaDeSpawneo() //Uso de cortina (en Seg.) para evitar saturación de enemigos
     {
-        while (spawnActivate)
-        {
-            Spawner();
+        while (currentQuantity < Maxquantrity)
+        {            
+            SpawnEnemy();
             yield return new WaitForSeconds(espera);
+        }
+        print("Máximo de enemigos alcanzado.");
+    }
+
+    public void SpawnEnemy()
+    {
+        if (currentQuantity > Maxquantrity)
+        {
+            print("Limite alcanzado.");
+            return;
+        }
+
+        BoundsInt bounds = tilemap.cellBounds;                                               // Obtener los límites del Tilemap
+
+        int x = Random.Range(bounds.xMin, bounds.xMax);
+        int y = Random.Range(bounds.yMin, bounds.yMax);
+
+        Vector3Int cellPos = new Vector3Int (x, y, 0);                                       // Posición de la celda en el Tilemap
+
+        if (tilemap.HasTile(cellPos))                                                        // Si el tile existe (no es vacío)
+        {
+            Vector3 worldPos = tilemap.CellToWorld(cellPos);                                 // Convertir a posición del mundo
+            int cantidad = Random.Range(2, 6);
+            for (int e = 0; e < cantidad; e++)
+            {
+                if (currentQuantity > Maxquantrity)
+                    return; // no crear más enemigos
+
+                GameObject enemyPrefab = EnemyPrefabEnemy[Random.Range(0, EnemyPrefabEnemy.Length)];
+
+                Vector3 offset = new Vector3 // Desplazamiento aleatorio para evitar superposición
+                (
+                    Random.Range(-0.3f, 0.3f), //x
+                    Random.Range(-0.3f, 0.3f), //y
+                    0                          //z 
+                );
+
+                Instantiate(enemyPrefab, worldPos + offset, Quaternion.identity, gameObject.transform);
+                currentQuantity++;
+                print("Cantidad actual: " + currentQuantity);
+            };
         }
     }
 }

@@ -6,9 +6,9 @@ Hacer uso del script para hacer explotar al enenigo al colisionar con el player
 */
 
 public class EnemyTwoAttack : MonoBehaviour
-{
-    [SerializeField] private PlayerController playerController;
+{    
     [SerializeField] private GameObject deathEnemy;
+    [SerializeField] private float Damage = 15f;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {   
@@ -18,7 +18,7 @@ public class EnemyTwoAttack : MonoBehaviour
             death.transform.position = gameObject.transform.position;
             Destroy(gameObject);
             Destroy(death,1);
-            playerController.PlayerLife(15);
+            collision.gameObject.GetComponent<PlayerController>().PlayerLife(Damage);            
         }
     }
 }
