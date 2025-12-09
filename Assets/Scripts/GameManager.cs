@@ -35,6 +35,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public  void winCondition()
+    {
+        if (BossFollow.lifeBoss <= 0 && EnemyController.currentQuantity == EnemyController.Maxquantrity)
+        {
+            print("¡Ahora debemos acabar con el más fuerte!");
+        }
+    }
+
     public void SaveSystemControll()
     {
         if (Input.GetKeyDown(KeyCode.S)) //Guardar juego

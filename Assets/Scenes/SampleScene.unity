@@ -290777,6 +290777,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 14.401
       objectReference: {fileID: 0}
+    - target: {fileID: 7229527657374726642, guid: 990309967f3758944bfe94633826026a, type: 3}
+      propertyPath: BulletPrefab2
+      value: 
+      objectReference: {fileID: 5716509711993211540, guid: 213db17b4534c11408f06e687e97a000, type: 3}
+    - target: {fileID: 7229527657374726642, guid: 990309967f3758944bfe94633826026a, type: 3}
+      propertyPath: BulletPrefab3
+      value: 
+      objectReference: {fileID: 5716509711993211540, guid: 478cf4a270dc76544b365249e748b85d, type: 3}
     - target: {fileID: 7848706259310440701, guid: 990309967f3758944bfe94633826026a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9949439

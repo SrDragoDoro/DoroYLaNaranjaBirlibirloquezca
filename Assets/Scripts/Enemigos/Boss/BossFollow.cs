@@ -3,7 +3,7 @@
 public class BossFollow : MonoBehaviour
 {
     private GameObject player;                               // Referencia del Player
-    [SerializeField] private static int lifeBoss = 100;
+    [SerializeField] public static int lifeBoss = 300;
     [SerializeField] private float speed = 1f;      
                                                
 
@@ -34,4 +34,8 @@ public class BossFollow : MonoBehaviour
             }
         }
     }
+
+
+
+
 }

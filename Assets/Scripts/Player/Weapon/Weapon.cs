@@ -7,15 +7,28 @@ Contenedor de balas
 
 using UnityEngine;
 
+public enum ShotType 
+{ 
+    None,
+    Normal, 
+    Doble, 
+    Triple 
+}
+
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject bulletParent; //Padre de las balas
-    [SerializeField] private GameObject BulletPrefab; //Hija de las balas
+        [SerializeField] private GameObject BulletPrefab;  //Hija de las bulletParent
+        [SerializeField] private GameObject BulletPrefab2; //Hija de las bulletParent
+        [SerializeField] private GameObject BulletPrefab3; //Hija de las bulletParent
 
     [SerializeField] private Transform weaponLeft;
             [SerializeField] private Transform FirePointLeft;
     [SerializeField] private Transform weaponRight;
             [SerializeField] private Transform FirePointRight;
+
+    public ShotType currentShot = ShotType.Normal; // Tipo de disparo actual
+
     private void Start()
     {
         bulletParent = GameObject.Find("BulletContainer");
@@ -27,7 +40,7 @@ public class Weapon : MonoBehaviour
         RotateWeaponsToMouse();
 
         if (Input.GetMouseButtonDown(1))
-            ShootProyectileTriple();
+            Fire();
     }
 
     private void RotateWeaponsToMouse()
@@ -43,90 +56,101 @@ public class Weapon : MonoBehaviour
         weaponRight.up = dirRight.normalized;
     }
 
-    public void ShootProyectile()
+    public void Fire()
     {
-        Vector2 mousePosition = Input.mousePosition;                            //-> obtener posicon del mouse respecto a la resolucion de la patanlla
-        Vector2 worldPositon = Camera.main.ScreenToWorldPoint(mousePosition);   // convirtiendo la posicon del mouse a la posicion en el mundo
-        Vector2 shootDirection = worldPositon - (Vector2)transform.position;    //calculdo la direccion de disparo
-        Vector2 normalizeShootDirection = shootDirection.normalized;            //normalizando la direccion
+        switch (currentShot)
+        {
+            case ShotType.Normal:
+                ShootProyectile();
+                break;
 
-        GameObject bulletLeft = Instantiate(BulletPrefab, bulletParent.transform);                          //-> Crear 
-        bulletLeft.transform.position = (Vector2)FirePointLeft.position;         //Coloca la bala en la posición del player
-        bulletLeft.transform.up = normalizeShootDirection;                        //Ajusta el ángulo de la bala a la ubicación del mouse
+            case ShotType.Doble:
+                ShootProyectileDoble();
+                break;
+
+            case ShotType.Triple:
+                ShootProyectileTriple();
+                break;
+        }
+    }
+
+    public void ShotControll()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            currentShot = ShotType.Normal;
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            currentShot = ShotType.Doble;
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            currentShot = ShotType.Triple;  
+    }
 
 
-        GameObject bulletRight = Instantiate(BulletPrefab, bulletParent.transform);                         //-> Crear 
-        bulletRight.transform.position = (Vector2)FirePointRight.position;       //Coloca la bala en la posición del player
-        bulletRight.transform.up = normalizeShootDirection;                       //Ajusta el ángulo de la bala a la ubicación del mouse
+    public Vector2 GetMousePosition()
+    {
+        Vector2 mousePosition = Input.mousePosition;                                         //-> obtener posicon del mouse respecto a la resolucion de la patanlla
+        Vector2 worldPositon = Camera.main.ScreenToWorldPoint(mousePosition);                // convirtiendo la posicon del mouse a la posicion en el mundo
+        Vector2 shootDirection = (worldPositon - (Vector2)transform.position).normalized;    //calculdo la direccion de disparo
+
+        return shootDirection;
+    }
+
+    public void ShootProyectile()
+    {     
+        GameObject bulletLeft = Instantiate(BulletPrefab, bulletParent.transform);           //-> Crear 
+        bulletLeft.transform.position = (Vector2)FirePointLeft.position;                     //Coloca la bala en la posición del player
+        bulletLeft.transform.up = GetMousePosition();                                        //Ajusta el ángulo de la bala a la ubicación del mouse
+
+        GameObject bulletRight = Instantiate(BulletPrefab, bulletParent.transform);          //-> Crear 
+        bulletRight.transform.position = (Vector2)FirePointRight.position;                   //Coloca la bala en la posición del player
+        bulletRight.transform.up = GetMousePosition();                                       //Ajusta el ángulo de la bala a la ubicación del mouse
     }
 
     public void ShootProyectileDoble()
-    {
-        Vector2 mousePosition = Input.mousePosition;                            //-> obtener posicon del mouse respecto a la resolucion de la patanlla
-        Vector2 worldPositon = Camera.main.ScreenToWorldPoint(mousePosition);   // convirtiendo la posicon del mouse a la posicion en el mundo
-        Vector2 shootDirection = (worldPositon - (Vector2)transform.position).normalized;    //calculdo la direccion de disparo
-        
+    {    
         int bullets = 2; // Numero de balas a disparar por cada arma       
 
         for (int i = 0; i < bullets; i++)
         {            
             Vector2 offset = new Vector2(0, Random.Range(-0.4f, 0.4f));
                         
-            GameObject bulletL = Instantiate(BulletPrefab, bulletParent.transform);
+            GameObject bulletL = Instantiate(BulletPrefab2, bulletParent.transform);
             bulletL.transform.position = (Vector2)FirePointLeft.position + offset;
-            bulletL.transform.up = shootDirection;
+            bulletL.transform.up = GetMousePosition();
                         
-            GameObject bulletR = Instantiate(BulletPrefab, bulletParent.transform);
+            GameObject bulletR = Instantiate(BulletPrefab2, bulletParent.transform);
             bulletR.transform.position = (Vector2)FirePointRight.position + offset;
-            bulletR.transform.up = shootDirection;
+            bulletR.transform.up = GetMousePosition();
         }
     }
 
     public void ShootProyectileTriple()
-    {
-        Vector2 mousePosition = Input.mousePosition;
-        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        Vector2 direction = (worldPosition - (Vector2)transform.position).normalized;
+    {       
+        float spreadAngle = 10f; // rotación a cada lado
 
-        float spreadAngle = 10f; // grados a cada lado
-
-        SpawnBulletWithAngle(direction, -spreadAngle);  // Bala izquierda
-        SpawnBulletWithAngle(direction, 0f);            // Bala central    
-        SpawnBulletWithAngle(direction, spreadAngle);   // Bala derecha
+        SpawnBulletWithAngle(GetMousePosition(), -spreadAngle);  // Bala izquierda
+        SpawnBulletWithAngle(GetMousePosition(), 0f);            // Bala central    
+        SpawnBulletWithAngle(GetMousePosition(), spreadAngle);   // Bala derecha
     }
-    private void SpawnBulletWithAngle(Vector2 direction, float angle)
+
+    public void SpawnBulletWithAngle(Vector2 direction, float angle)
     {
-        GameObject bulletL = Instantiate(BulletPrefab, bulletParent.transform);
-        bulletL.transform.position = FirePointLeft.position;                 // Usa el FirePointLeft o uno central
+        GameObject bulletL = Instantiate(BulletPrefab3, bulletParent.transform);
+        bulletL.transform.position = FirePointLeft.position;                 // Usa el FirePointLeft 
         Vector2 newDirL = Quaternion.Euler(0, 0, angle) * direction;         // Rotar la dirección
         bulletL.transform.up = newDirL;
 
-        GameObject bulletR = Instantiate(BulletPrefab, bulletParent.transform);
-        bulletR.transform.position = FirePointRight.position;                // Usa el FirePointLeft o uno central
+        GameObject bulletR = Instantiate(BulletPrefab3, bulletParent.transform);
+        bulletR.transform.position = FirePointRight.position;                // Usa el FirePointLeft 
         Vector2 newDirR = Quaternion.Euler(0, 0, angle) * direction;         // Rotar la dirección
         bulletR.transform.up = newDirR;
     }
 
+    public void Ulti()
+    {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }
