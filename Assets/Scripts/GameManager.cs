@@ -1,26 +1,30 @@
+using System.Collections;
 using UnityEngine;
 
 public struct GameData
-{
+{    
     public PlayerStatistics player;
     public int currentEnemyCount;
     public int numberEnemyDeath;
 }
 
 public class GameManager : MonoBehaviour
-{         
-    public GameData GameData;
+{           
+    private PlayerController playerController;
+    public GameData GameData;       
     public static int NumberEnemyDeath;  //Contador estatico para el numero de enemigos muertos    
 
     void Start()
     {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        StartCoroutine(Autosave());
         NumberEnemyDeath = 0;
     }
 
     void Update()
     {
         FinalBattle();
-        SaveSystemControll();
+        SaveSystemControll();       
     }
 
     public void FinalBattle()
@@ -39,10 +43,27 @@ public class GameManager : MonoBehaviour
             SaveSystem.SaveGame(GameData);
         }
 
-        if (Input.GetKeyDown(KeyCode.L)) //Cargar juego
-        {
+        if (Input.GetKeyDown(KeyCode.F5)) //Cargar autoguardado juego
+        {            
+            GameData = AutoSaveSystem.LoadGame();
             ApplyLoadedData();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L)) //Cargar juego
+        {            
             GameData = SaveSystem.LoadGame();
+            ApplyLoadedData();
+        }        
+    }
+
+    IEnumerator Autosave()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(100);
+            CollectSaveData();
+            AutoSaveSystem.SaveGame(GameData);
+            print("Autosave realizado");
         }
     }
 
@@ -50,14 +71,13 @@ public class GameManager : MonoBehaviour
     {
         GameData.currentEnemyCount = EnemyController.currentQuantity;
         GameData.numberEnemyDeath = NumberEnemyDeath;
+        GameData.player = playerController.Statistics;
     }
 
     private void ApplyLoadedData() //Aplica los datos cargados del guardado al juego
     {
         EnemyController.currentQuantity = GameData.currentEnemyCount;
-        NumberEnemyDeath = GameData.numberEnemyDeath;       
+        NumberEnemyDeath = GameData.numberEnemyDeath;
+        playerController.Statistics = GameData.player;
     }
-
-
-
 }

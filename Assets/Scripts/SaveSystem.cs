@@ -29,3 +29,31 @@ public static class SaveSystem
         }
     }
 }
+public static class AutoSaveSystem
+{
+    private static string savePath = Application.persistentDataPath + "/autosave.json";
+
+    public static void SaveGame(GameData data)
+    {
+        string jsonData = JsonUtility.ToJson(data);
+        File.WriteAllText(savePath, jsonData);
+        Debug.Log("autoguardado en: " + savePath);
+    }
+
+    public static GameData LoadGame()
+    {
+        if (File.Exists(savePath))
+        {
+            string jsonData = File.ReadAllText(savePath);
+            GameData data = JsonUtility.FromJson<GameData>(jsonData);
+            Debug.Log("Autoguardado encotrado | " + savePath);
+            return data;
+        }
+        else
+        {
+            Debug.Log("No hay datos autoguardados");
+            GameData data = new GameData();
+            return data;
+        }
+    }
+}

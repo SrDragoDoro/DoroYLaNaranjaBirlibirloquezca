@@ -108,11 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Statistics:
-    Speed: 5
-    lifePlayer: 100
+    Speed: 6
+    lifePlayer: 150
   PlayerWalk: {fileID: 2540231828414736392}
-  lifePlayer: 100
-  Speed: 6
 --- !u!50 &3562712803913055893
 Rigidbody2D:
   serializedVersion: 5

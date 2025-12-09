@@ -11,13 +11,7 @@ Vida del player
 public struct PlayerStatistics //Sin asignar
 {
     public float Speed;
-    public float lifePlayer;
-    public PlayerStatistics(float _speed, float _lifePlayer)
-    {
-        Speed = _speed;
-        lifePlayer = _lifePlayer;
-        
-    }
+    public float lifePlayer;    
 }
 
 public class PlayerController : MonoBehaviour
@@ -26,15 +20,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Animator PlayerWalk;
     private bool move = false; //Simula un swichs de cambio para no hacer un movimiento constante al dar click
-    private Vector2 destiny;
-
-    [SerializeField] private float lifePlayer;
-    [SerializeField] private float Speed;
+    private Vector2 destiny;       
  
-    private void Start()
-    {
-        Statistics = new PlayerStatistics(Speed, lifePlayer);
-    }
     void Update()
     {        
         if (move) //Si es TRUE hay movimiento 
