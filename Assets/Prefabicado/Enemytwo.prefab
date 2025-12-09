@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 2785175762009320880, guid: 08ac276b34df1d24f8831b73fed18e02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -189,7 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576dbae65f4d530489ab27979f8b4ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyWin: {fileID: 2787607365500315994, guid: 7ed7857e164bcdf4196b795af4296f7c, type: 3}
   enemyDead: {fileID: 940313841791606549, guid: e20c1e6a71889594ca44d2e8c59a7027, type: 3}
   lifeEnemy: 3
   speed: 3

@@ -9,13 +9,15 @@ public struct GameData
 }
 
 public class GameManager : MonoBehaviour
-{           
+{
+    [SerializeField] private GameObject Loading;
     private PlayerController playerController;
     public GameData GameData;       
     public static int NumberEnemyDeath;  //Contador estatico para el numero de enemigos muertos    
 
     void Start()
     {
+        Loading.SetActive(false);
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         StartCoroutine(Autosave());
         NumberEnemyDeath = 0;
@@ -23,12 +25,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        ShotDesbloqueate();
+        ShotUnlocked();
         FinalBattle();
         SaveSystemControll();       
     }
 
-    public void ShotDesbloqueate()
+    public void ShotUnlocked()
     {
         if (EnemyController.currentQuantity >= EnemyController.Maxquantrity / 2)
         {
@@ -49,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public  void winCondition()
+    public void winCondition()
     {
         if (BossFollow.lifeBoss <= 0 && EnemyController.currentQuantity == EnemyController.Maxquantrity)
         {
@@ -86,6 +88,10 @@ public class GameManager : MonoBehaviour
             CollectSaveData();
             AutoSaveSystem.SaveGame(GameData);
             print("Autosave realizado");
+
+            Loading.SetActive(true);
+            yield return new WaitForSeconds(2);
+            Loading.SetActive(false);
         }
     }
 

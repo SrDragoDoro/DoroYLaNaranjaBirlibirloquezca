@@ -19,19 +19,26 @@ public enum ShotType
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject bulletParent; //Padre de las balas
-        [SerializeField] private GameObject BulletPrefab;  //Hija de las bulletParent
-        [SerializeField] private GameObject BulletPrefab2; //Hija de las bulletParent
-        [SerializeField] private GameObject BulletPrefab3; //Hija de las bulletParent
+    [SerializeField] private GameObject BulletPrefab;  //Hija de las bulletParent
+    [SerializeField] private GameObject BulletPrefab2; //Hija de las bulletParent
+    [SerializeField] private GameObject BulletPrefab3; //Hija de las bulletParent
+
+    [SerializeField] private GameObject ultiPrefab; // Prefab del rayo completo
+   
+    private GameObject currentRayL;                  // Rayo actualmente activo, empieza nulo
+    private GameObject currentRayR;                  // Rayo actualmente activo, empieza nulo
+
 
     [SerializeField] private Transform weaponLeft;
-            [SerializeField] private Transform FirePointLeft;
+    [SerializeField] private Transform FirePointLeft;
     [SerializeField] private Transform weaponRight;
-            [SerializeField] private Transform FirePointRight;
+    [SerializeField] private Transform FirePointRight;
 
     public ShotType currentShot = ShotType.Normal; // Tipo de disparo actual
 
     private void Start()
     {
+
         bulletParent = GameObject.Find("BulletContainer");
     }
 
@@ -39,10 +46,15 @@ public class Weapon : MonoBehaviour
     {
         // Siempre apunta las armas al mouse
         RotateWeaponsToMouse();
-        
+        UpdateRayDirection();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            Ulti();
+
         ShotControll();
         if (Input.GetMouseButtonDown(1))
             Fire();
+
     }
 
     private void RotateWeaponsToMouse()
@@ -80,22 +92,22 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            currentShot = ShotType.Normal; 
-            print ("Disparo Normal Activado");
+            currentShot = ShotType.Normal;
+            print("Disparo Normal Activado");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha1)) print ("Disparo Normal bloqueado");
+        else if (Input.GetKeyDown(KeyCode.Alpha1)) print("Disparo Normal bloqueado");
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && EnemyController.currentQuantity >= EnemyController.Maxquantrity/2)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && EnemyController.currentQuantity >= EnemyController.Maxquantrity / 2)
         {
-            currentShot = ShotType.Doble;  
-            print ("Disparo Doble Activado");
+            currentShot = ShotType.Doble;
+            print("Disparo Doble Activado");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2)) print("Disparo doble bloqueado");
 
         if (Input.GetKeyDown(KeyCode.Alpha3) && BossController.BossHave)
         {
-            currentShot = ShotType.Triple; 
-            print ("Disparo Triple Activado");
+            currentShot = ShotType.Triple;
+            print("Disparo Triple Activado");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3)) print("Disparo triple bloqueado");
     }
@@ -111,7 +123,7 @@ public class Weapon : MonoBehaviour
     }
 
     public void ShootProyectile()
-    {     
+    {
         GameObject bulletLeft = Instantiate(BulletPrefab, bulletParent.transform);           //-> Crear 
         bulletLeft.transform.position = (Vector2)FirePointLeft.position;                     //Coloca la bala en la posición del player
         bulletLeft.transform.up = GetMousePosition();                                        //Ajusta el ángulo de la bala a la ubicación del mouse
@@ -122,17 +134,17 @@ public class Weapon : MonoBehaviour
     }
 
     public void ShootProyectileDoble()
-    {    
+    {
         int bullets = 2; // Numero de balas a disparar por cada arma       
 
         for (int i = 0; i < bullets; i++)
-        {            
+        {
             Vector2 offset = new Vector2(0, Random.Range(-0.4f, 0.4f));
-                        
+
             GameObject bulletL = Instantiate(BulletPrefab2, bulletParent.transform);
             bulletL.transform.position = (Vector2)FirePointLeft.position + offset;
             bulletL.transform.up = GetMousePosition();
-                        
+
             GameObject bulletR = Instantiate(BulletPrefab2, bulletParent.transform);
             bulletR.transform.position = (Vector2)FirePointRight.position + offset;
             bulletR.transform.up = GetMousePosition();
@@ -140,7 +152,7 @@ public class Weapon : MonoBehaviour
     }
 
     public void ShootProyectileTriple()
-    {       
+    {
         float spreadAngle = 10f; // rotación a cada lado
 
         SpawnBulletWithAngle(GetMousePosition(), -spreadAngle);  // Bala izquierda
@@ -161,10 +173,29 @@ public class Weapon : MonoBehaviour
         bulletR.transform.up = newDirR;
     }
 
-    public void Ulti()
+    private void UpdateRayDirection()
     {
+        if (currentRayL != null)
+        {
+            currentRayL.transform.up = GetMousePosition();
+            currentRayL.transform.Rotate(0, 0, -90f); // corregir desfase
+        }
 
+        if (currentRayR != null)
+        {
+            currentRayR.transform.up = GetMousePosition();
+            currentRayR.transform.Rotate(0, 0, -90f);
+        }
     }
 
+    public void Ulti()
+    {
+        // Instanciar rayo izquierdo
+        currentRayL = Instantiate(ultiPrefab, weaponLeft);
+        currentRayL.transform.position = FirePointLeft.position;
 
+        // Instanciar rayo derecho
+        currentRayR = Instantiate(ultiPrefab, weaponRight);
+        currentRayR.transform.position = FirePointRight.position;
+    }
 }

@@ -12,7 +12,7 @@ public class EnemyOneBullet : MonoBehaviour
     [SerializeField] private float Damage = 10f;
     [SerializeField] private float DestroyBullet = 5f;
     private List<string> tagslistE = new List<string>
-    {     "Player", "ShotPlayer" };
+    {     "Player", "ShotPlayer", "Ulti"}; //Tags con los que colisiona la bala enemiga
 
     void Start()
     {

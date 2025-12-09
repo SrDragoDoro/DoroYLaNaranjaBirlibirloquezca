@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
     public const int Maxquantrity = 125;               //Cantidad maxima de enemigos en escena
     public static int currentQuantity;                  //Cantidad actual de enemigos en escena
     
-    private bool spawnActivate = false;
+    private bool spawnActivate = false; //// PONER EN TRUE PARA ACTIVAR SPAWN AL INICIO
     private Coroutine currentSpawnRoutine;              //Cortina de refetencia    
 
     private void Start()

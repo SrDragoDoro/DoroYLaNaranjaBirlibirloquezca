@@ -16,7 +16,7 @@ public class LifeEnemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //print("trigger entro: " + collision.tag);
-        if (collision.CompareTag("ShotPlayer"))
+        if (collision.CompareTag("ShotPlayer") || collision.CompareTag("Ulti"))
         {
             lifeEnemy--;
             //print("Enemigo 1 tiene de vida: " + lifeEnemy);
@@ -29,7 +29,7 @@ public class LifeEnemy : MonoBehaviour
                 CountEnemyDeath();                               
             }
         }
-    }    
+    }
 
     //Condiciones para el boss
     public static int NumberEnemyDeathGet() 

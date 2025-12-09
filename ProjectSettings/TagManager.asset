@@ -14,6 +14,7 @@ TagManager:
   - MuroNegro
   - Boss
   - EnemyFour
+  - Ulti
   layers:
   - Default
   - TransparentFX

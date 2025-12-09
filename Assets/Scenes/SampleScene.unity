@@ -51597,6 +51597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d19f0f4794e3574c93dd0a4dde9a75d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Loading: {fileID: 1379159999}
 --- !u!1 &1072152751
 GameObject:
   m_ObjectHideFlags: 0
@@ -290725,7 +290726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1379160000
 Transform:
   m_ObjectHideFlags: 0
@@ -290890,6 +290891,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 14.401
       objectReference: {fileID: 0}
+    - target: {fileID: 7229527657374726642, guid: 990309967f3758944bfe94633826026a, type: 3}
+      propertyPath: ultiPrefab
+      value: 
+      objectReference: {fileID: 6928533367323206248, guid: bdaa9b9649b9a9044b29386dfecc8060, type: 3}
     - target: {fileID: 7229527657374726642, guid: 990309967f3758944bfe94633826026a, type: 3}
       propertyPath: BulletPrefab2
       value: 
