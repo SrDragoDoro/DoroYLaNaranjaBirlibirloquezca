@@ -87,7 +87,7 @@ public class EnemyController : MonoBehaviour
         {
             Vector3 worldPos = tilemap.CellToWorld(cellPos);                                 // Convertir a posición del mundo
             int cantidad = Random.Range(2, 6);
-            for (int e = 0; e < cantidad; e++)
+            for (int e = 0; e < cantidad; e++) 
             {
                 if (currentQuantity > Maxquantrity)
                     return; // no crear más enemigos
@@ -101,7 +101,7 @@ public class EnemyController : MonoBehaviour
                     0                          //z 
                 );
 
-                Instantiate(enemyPrefab, worldPos + offset, Quaternion.identity, gameObject.transform);
+                Instantiate(enemyPrefab, worldPos + offset, Quaternion.identity, gameObject.transform); // Crear enemigo como hijo de este objeto
                 currentQuantity++;
                 print("Cantidad actual: " + currentQuantity);
             };
