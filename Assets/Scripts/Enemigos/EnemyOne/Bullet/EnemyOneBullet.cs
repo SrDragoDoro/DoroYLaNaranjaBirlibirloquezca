@@ -7,8 +7,7 @@ Condiciones de comparaci�n por colision por Trigger (Destrucci�n por �nica
 */
 
 public class EnemyOneBullet : MonoBehaviour
-{
-   //Referencia a PlayerController para acceder al m�todo de vida
+{   
     [SerializeField] private float Speed = 3f;
     [SerializeField] private float Damage = 10f;
     [SerializeField] private float DestroyBullet = 5f;
@@ -34,8 +33,7 @@ public class EnemyOneBullet : MonoBehaviour
                 Destroy(gameObject);
                 if (collision.CompareTag("Player"))
                 {
-                    collision.gameObject.GetComponent<PlayerController>().PlayerLife(Damage);
-                    //playerController.PlayerLife(Damage); //Causar dano al jugador al colisionar con la bala
+                    collision.gameObject.GetComponent<PlayerController>().PlayerLife(Damage);                    
                 }
             }
         }

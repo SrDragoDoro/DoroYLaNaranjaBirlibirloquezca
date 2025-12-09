@@ -1,15 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-/*Contenido
-Cortinas para intervalos en ataques enemigos
-Creación de objetos de disparo
-*/
-
-public class EnemyOneAttack : MonoBehaviour
+public class AttackEnemyFour : MonoBehaviour
 {
     private GameObject Player;
-    [SerializeField] private GameObject BulletPrefabEnemy;    
+    [SerializeField] private GameObject BulletPrefabEnemy;
     [SerializeField] private float intervalo = 1f;
     private bool attacking = false; //Control de bucle, caso contrario las balas no se moverán
 
@@ -20,7 +15,7 @@ public class EnemyOneAttack : MonoBehaviour
 
     void Update()
     {
-        if (!attacking) 
+        if (!attacking)
         {
             StartCoroutine(CoroutineAttack());
         }
@@ -39,6 +34,7 @@ public class EnemyOneAttack : MonoBehaviour
     public void ShootProyectile()
     {
         GameObject bullet = Instantiate(BulletPrefabEnemy, transform);                   //-> Crear bala
+        bullet.transform.localScale = new Vector3(2, 2, 0);
         bullet.transform.position = transform.position;                                  //Coloca la bala en la posición del enemigo
         bullet.transform.up = PlayerLocate();                                            //Ajusta el ángulo de la bala a la ubicación del player
     }
@@ -50,5 +46,4 @@ public class EnemyOneAttack : MonoBehaviour
 
         return direction;
     }
-
 }

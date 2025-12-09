@@ -13,6 +13,7 @@ TagManager:
   - BulletEnemyThree
   - MuroNegro
   - Boss
+  - EnemyFour
   layers:
   - Default
   - TransparentFX

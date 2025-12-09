@@ -1,0 +1,475 @@
+fileFormatVersion: 2
+guid: d2eedb41956b53548964d81bb5afc7f9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5437692276566767846
+    second: Recurso 5DoroDead_0
+  - first:
+      213: -4242603850463225757
+    second: Recurso 5DoroDead_1
+  - first:
+      213: -5411367081219223300
+    second: Recurso 5DoroDead_2
+  - first:
+      213: -3176569825029433131
+    second: Recurso 5DoroDead_3
+  - first:
+      213: -5168196049688023176
+    second: Recurso 5DoroDead_4
+  - first:
+      213: -7581508346537294065
+    second: Recurso 5DoroDead_5
+  - first:
+      213: 2063138534217746882
+    second: Recurso 5DoroDead_6
+  - first:
+      213: -6241857679753863408
+    second: Recurso 5DoroDead_7
+  - first:
+      213: -2491200267381545601
+    second: Recurso 5DoroDead_8
+  - first:
+      213: -4752957322779314528
+    second: Recurso 5DoroDead_9
+  - first:
+      213: 4849836699018540206
+    second: Recurso 5DoroDead_10
+  - first:
+      213: -812144439095416781
+    second: Recurso 5DoroDead_11
+  - first:
+      213: -6129001052947187125
+    second: Recurso 5DoroDead_12
+  - first:
+      213: -6399310429274128539
+    second: Recurso 5DoroDead_13
+  - first:
+      213: 7546577135832791419
+    second: Recurso 5DoroDead_14
+  - first:
+      213: -8664191293261954338
+    second: Recurso 5DoroDead_15
+  - first:
+      213: -6784632784602261523
+    second: Recurso 5DoroDead_16
+  - first:
+      213: -1583581813109207978
+    second: Recurso 5DoroDead_17
+  - first:
+      213: -61585719411588481
+    second: Recurso 5DoroDead_18
+  - first:
+      213: -8117261352063163265
+    second: Recurso 5DoroDead_19
+  - first:
+      213: 3959873159762224798
+    second: Recurso 5DoroDead_20
+  - first:
+      213: 3909381022230579268
+    second: Recurso 5DoroDead_21
+  - first:
+      213: 8997293112859179948
+    second: Recurso 5DoroDead_22
+  - first:
+      213: -8911586391395308026
+    second: Recurso 5DoroDead_23
+  - first:
+      213: 9070348037418906307
+    second: Recurso 5DoroDead_24
+  - first:
+      213: 8348853738208154531
+    second: Recurso 5DoroDead_25
+  - first:
+      213: 8240174388244898024
+    second: Recurso 5DoroDead_26
+  - first:
+      213: -1128753982512510386
+    second: Recurso 5DoroDead_27
+  - first:
+      213: 5354249368089829622
+    second: Recurso 5DoroDead_28
+  - first:
+      213: -3475103093447822634
+    second: Recurso 5DoroDead_29
+  - first:
+      213: 3892046593151695148
+    second: Recurso 5DoroDead_30
+  - first:
+      213: 4709087177093745357
+    second: Recurso 5DoroDead_31
+  - first:
+      213: -8726683899108673378
+    second: Recurso 5DoroDead_32
+  - first:
+      213: -2567740003327358550
+    second: Recurso 5DoroDead_33
+  - first:
+      213: 6797243427697926901
+    second: Recurso 5DoroDead_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a174a514faf6984b0800000000000000
+      internalID: -5437692276566767846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_1
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3685f6ab64e3f15c0800000000000000
+      internalID: -4242603850463225757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_2
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf09fae6f46f6e4b0800000000000000
+      internalID: -5411367081219223300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_3
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d855e6039e8ae3d0800000000000000
+      internalID: -3176569825029433131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_4
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87fa4c83311e648b0800000000000000
+      internalID: -5168196049688023176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_5
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f074cfec35219c690800000000000000
+      internalID: -7581508346537294065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_6
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9087ed09db1ac10800000000000000
+      internalID: 2063138534217746882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_7
+      rect:
+        serializedVersion: 2
+        x: 1946
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01f1ab3d2877069a0800000000000000
+      internalID: -6241857679753863408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_8
+      rect:
+        serializedVersion: 2
+        x: 2224
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f756d564e8a7d6dd0800000000000000
+      internalID: -2491200267381545601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_9
+      rect:
+        serializedVersion: 2
+        x: 2502
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a6b5274f7a1a0eb0800000000000000
+      internalID: -4752957322779314528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recurso 5DoroDead_10
+      rect:
+        serializedVersion: 2
+        x: 2780
+        y: 0
+        width: 278
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea437af38c41e4340800000000000000
+      internalID: 4849836699018540206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2f9010d60b9fb444b99958da1e5aa47f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Recurso 5DoroDead_0: -5437692276566767846
+      Recurso 5DoroDead_1: -4242603850463225757
+      Recurso 5DoroDead_10: 4849836699018540206
+      Recurso 5DoroDead_2: -5411367081219223300
+      Recurso 5DoroDead_3: -3176569825029433131
+      Recurso 5DoroDead_4: -5168196049688023176
+      Recurso 5DoroDead_5: -7581508346537294065
+      Recurso 5DoroDead_6: 2063138534217746882
+      Recurso 5DoroDead_7: -6241857679753863408
+      Recurso 5DoroDead_8: -2491200267381545601
+      Recurso 5DoroDead_9: -4752957322779314528
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

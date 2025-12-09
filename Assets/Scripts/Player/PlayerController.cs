@@ -8,7 +8,7 @@ Vida del player
 */
 
 [Serializable] 
-public struct PlayerStatistics //Sin asignar
+public struct PlayerStatistics
 {
     public float Speed;
     public float lifePlayer;    
@@ -80,6 +80,6 @@ public class PlayerController : MonoBehaviour
 
     public float GetLifePlayer()
     {
-        return Statistics.lifePlayer;
+        return Statistics.lifePlayer; //Obtiene la vida actual del player
     }
 }

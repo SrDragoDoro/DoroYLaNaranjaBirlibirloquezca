@@ -25,16 +25,14 @@ public class BossAttack : MonoBehaviour
         }
     }
 
+
     IEnumerator CoroutineAttack()
     {
-        attacking = true;
+        attacking = true;        
 
-        Vector2 direction = (Vector2)Player.transform.position - (Vector2)transform.position; //Calcular direcci�n hacia el jugador (Vector2)        
-        direction = direction.normalized;                                                     //Normalizar la direcci�n
-
-        GameObject bullet = Instantiate(BulletPrefabEnemy);                         //-> Crear bala
+        GameObject bullet = Instantiate(BulletPrefabEnemy, transform);                         //-> Crear bala
         bullet.transform.position = transform.position;                             //Coloca la bala en la posicion del enemigo
-        bullet.transform.up = direction;                                            //Ajusta el �ngulo de la bala a la ubicaci�n del player
+        bullet.transform.up = PlayerLocate();                                            //Ajusta el �ngulo de la bala a la ubicaci�n del player
 
         yield return new WaitForSeconds(intervalo);
 
@@ -44,17 +42,21 @@ public class BossAttack : MonoBehaviour
     IEnumerator CoroutineAttack2()
     {
         attacking = true;
-
-        Vector2 direction = (Vector2)Player.transform.position - (Vector2)transform.position; //Calcular direcci�n hacia el jugador (Vector2)        
-        direction = direction.normalized;                                                     //Normalizar la direcci�n
-
-        GameObject bullet = Instantiate(BulletPrefabEnemy);                         //-> Crear bala
+        
+        GameObject bullet = Instantiate(BulletPrefabEnemy, transform);                         //-> Crear bala
         bullet.transform.localScale = new Vector3(3, 3, 0);
         bullet.transform.position = transform.position;                             //Coloca la bala en la posicion del enemigo
-        bullet.transform.up = direction;                                            //Ajusta el angulo de la bala a la ubicaci�n del player
+        bullet.transform.up = PlayerLocate();                                            //Ajusta el angulo de la bala a la ubicaci�n del player
 
         yield return new WaitForSeconds(intervalo2);
 
         attacking = false;
+    }
+    public Vector2 PlayerLocate()
+    {
+        Vector2 direction = (Vector2)Player.transform.position - (Vector2)transform.position; //Calcular dirección hacia el jugador (Vector2)        
+        direction = direction.normalized;
+
+        return direction;
     }
 }

@@ -56,8 +56,7 @@ public class Weapon : MonoBehaviour
         // Rota armas apuntando hacia el mouse
         weaponLeft.up = dirLeft.normalized;
         weaponRight.up = dirRight.normalized;
-    }   
-
+    }
 
     public void Fire()
     {

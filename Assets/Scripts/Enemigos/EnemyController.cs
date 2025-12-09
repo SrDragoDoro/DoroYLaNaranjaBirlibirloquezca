@@ -15,21 +15,21 @@ public class EnemyController : MonoBehaviour
 {  
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private GameObject[] EnemyPrefabEnemy;
-    [SerializeField] private const float espera = 3f;   //Tiempo de espera entre spawneos
+    [SerializeField] private const float espera = 5f;   //Tiempo de espera entre spawneos
 
-    public const int Maxquantrity = 125;                //Cantidad maxima de enemigos en escena
+    public const int Maxquantrity = 125;               //Cantidad maxima de enemigos en escena
     public static int currentQuantity;                  //Cantidad actual de enemigos en escena
     
     private bool spawnActivate = false;
-    private Coroutine currentSpawnRoutine;              //Cortina de refetencia
+    private Coroutine currentSpawnRoutine;              //Cortina de refetencia    
 
     private void Start()
     {
-        currentQuantity = 0;
+        currentQuantity = 0;        
     }
 
     void Update()
-    {
+    {        
         SpawnControll();
     }
 

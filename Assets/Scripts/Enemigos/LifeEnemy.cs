@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 
 public class LifeEnemy : MonoBehaviour
-{
+{   
+    [SerializeField] private GameObject enemyDead;
     [SerializeField] private int lifeEnemy = 4;    
     private const int RequiredEnemyDeath = 60; //Numero requerido de enemigos muertos para activar la invocacion del jefe
+      
 
     public void CountEnemyDeath()
     {
@@ -20,12 +22,14 @@ public class LifeEnemy : MonoBehaviour
             //print("Enemigo 1 tiene de vida: " + lifeEnemy);
             if (lifeEnemy <= 0)
             {
-          
+                GameObject death = Instantiate(enemyDead);
+                death.transform.position = gameObject.transform.position;
                 Destroy(gameObject);
+                Destroy(death, 2);                
                 CountEnemyDeath();                               
             }
         }
-    }
+    }    
 
     //Condiciones para el boss
     public static int NumberEnemyDeathGet() 
