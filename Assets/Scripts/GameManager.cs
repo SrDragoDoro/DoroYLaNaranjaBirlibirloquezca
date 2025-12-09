@@ -23,8 +23,22 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        ShotDesbloqueate();
         FinalBattle();
         SaveSystemControll();       
+    }
+
+    public void ShotDesbloqueate()
+    {
+        if (EnemyController.currentQuantity >= EnemyController.Maxquantrity / 2)
+        {
+            print("¡Has desbloqueado el disparo doble!");
+        }
+
+        if (BossController.BossHave)
+        {
+            print("¡Has desbloqueado el disparo triple!");
+        }
     }
 
     public void FinalBattle()

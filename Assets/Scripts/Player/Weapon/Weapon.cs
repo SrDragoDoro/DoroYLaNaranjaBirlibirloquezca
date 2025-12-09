@@ -6,6 +6,7 @@ Contenedor de balas
 */
 
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public enum ShotType 
 { 
@@ -38,7 +39,8 @@ public class Weapon : MonoBehaviour
     {
         // Siempre apunta las armas al mouse
         RotateWeaponsToMouse();
-
+        
+        ShotControll();
         if (Input.GetMouseButtonDown(1))
             Fire();
     }
@@ -54,7 +56,8 @@ public class Weapon : MonoBehaviour
         // Rota armas apuntando hacia el mouse
         weaponLeft.up = dirLeft.normalized;
         weaponRight.up = dirRight.normalized;
-    }
+    }   
+
 
     public void Fire()
     {
@@ -77,13 +80,25 @@ public class Weapon : MonoBehaviour
     public void ShotControll()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            currentShot = ShotType.Normal;
+        {
+            currentShot = ShotType.Normal; 
+            print ("Disparo Normal Activado");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1)) print ("Disparo Normal bloqueado");
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            currentShot = ShotType.Doble;
+        if (Input.GetKeyDown(KeyCode.Alpha2) && EnemyController.currentQuantity >= EnemyController.Maxquantrity/2)
+        {
+            currentShot = ShotType.Doble;  
+            print ("Disparo Doble Activado");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) print("Disparo doble bloqueado");
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            currentShot = ShotType.Triple;  
+        if (Input.GetKeyDown(KeyCode.Alpha3) && BossController.BossHave)
+        {
+            currentShot = ShotType.Triple; 
+            print ("Disparo Triple Activado");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) print("Disparo triple bloqueado");
     }
 
 
