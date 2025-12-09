@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
 {  
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private GameObject[] EnemyPrefabEnemy;
-    [SerializeField] private const float espera = 5f;   //Tiempo de espera entre spawneos
+    [SerializeField] private const float espera = 8f;   //Tiempo de espera entre spawneos
 
     public const int Maxquantrity = 125;               //Cantidad maxima de enemigos en escena
     public static int currentQuantity;                  //Cantidad actual de enemigos en escena

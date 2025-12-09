@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefabEnemy: {fileID: 5043139937888268952, guid: 3e2b8569beab04d46bfba66721464987, type: 3}
-  intervalo: 3
+  intervalo: 5
 --- !u!50 &-7004707345288634944
 Rigidbody2D:
   serializedVersion: 5

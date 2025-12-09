@@ -25,7 +25,7 @@ public class LifeEnemy : MonoBehaviour
                 GameObject death = Instantiate(enemyDead);
                 death.transform.position = gameObject.transform.position;
                 Destroy(gameObject);
-                Destroy(death, 2);                
+                Destroy(death, 1.5f);                
                 CountEnemyDeath();                               
             }
         }

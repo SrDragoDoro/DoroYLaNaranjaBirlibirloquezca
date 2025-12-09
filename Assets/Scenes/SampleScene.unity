@@ -51522,6 +51522,8 @@ MonoBehaviour:
   EnemyPrefabEnemy:
   - {fileID: 7474887824286960025, guid: c63dfdc71538c9f4c9279fec039c8175, type: 3}
   - {fileID: 4731636481565237492, guid: 2cce6130d2001ee4597b4160d74ad706, type: 3}
+  - {fileID: 9033494810152138863, guid: 7d9265b6d40250247ab00f6dfbeee052, type: 3}
+  - {fileID: 2675120560676841221, guid: 63ab7648e83b1ea45910be36121668c0, type: 3}
 --- !u!114 &1006861862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290917,7 +290919,8 @@ PrefabInstance:
       value: 1.057
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8345895011211369529, guid: 990309967f3758944bfe94633826026a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 990309967f3758944bfe94633826026a, type: 3}

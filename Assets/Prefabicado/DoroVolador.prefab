@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyBulletPrefab: {fileID: 5176413680238030941, guid: 15486a12d7f112747a1979b22b5f8451, type: 3}
-  intervalo: 1.5
+  intervalo: 2.5
 --- !u!50 &-4986335570132131104
 Rigidbody2D:
   serializedVersion: 5

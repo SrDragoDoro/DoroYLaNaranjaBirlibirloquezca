@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float Speed;
     [SerializeField] float minDistance = 2f; // rango para detectar enemigos    
     private string[] tagslist = new string[]
-    {     "Enemy", "EnemyTwo", "Boss", "BulletEnemyOne" };
+    {     "Enemy", "EnemyTwo", "Boss", "BulletEnemyOne", "EnemyThree", "EnemyFour"  };
 
 
     void Start()
