@@ -4,6 +4,8 @@ using UnityEngine;
 public class AttackEnemyThree : MonoBehaviour
 {
     private GameObject Player;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip e3shotSound;
     [SerializeField] private GameObject EnemyBulletPrefab; 
     [SerializeField] private float intervalo = 1.5f;
     private bool attacking = false; //Control de bucle, caso contrario las balas no se moverán
@@ -17,6 +19,7 @@ public class AttackEnemyThree : MonoBehaviour
     {
         if (!attacking)
         {
+            audioSource.PlayOneShot(e3shotSound, 0.25f);
             StartCoroutine(CoroutineAttack());
         }
     }

@@ -30,9 +30,9 @@ public class BossAttack : MonoBehaviour
     {
         attacking = true;        
 
-        GameObject bullet = Instantiate(BulletPrefabEnemy, transform);                         //-> Crear bala
-        bullet.transform.position = transform.position;                             //Coloca la bala en la posicion del enemigo
-        bullet.transform.up = PlayerLocate();                                            //Ajusta el �ngulo de la bala a la ubicaci�n del player
+        GameObject bullet = Instantiate(BulletPrefabEnemy, transform);                  //-> Crear bala
+        bullet.transform.position = transform.position;                                 //Coloca la bala en la posicion del enemigo
+        bullet.transform.up = PlayerLocate();                                           //Ajusta el �ngulo de la bala a la ubicaci�n del player
 
         yield return new WaitForSeconds(intervalo);
 
@@ -43,9 +43,9 @@ public class BossAttack : MonoBehaviour
     {
         attacking = true;
         
-        GameObject bullet = Instantiate(BulletPrefabEnemy, transform);                         //-> Crear bala
-        bullet.transform.localScale = new Vector3(3, 3, 0);
-        bullet.transform.position = transform.position;                             //Coloca la bala en la posicion del enemigo
+        GameObject bullet = Instantiate(BulletPrefabEnemy, transform);                   //-> Crear bala
+        bullet.transform.localScale = new Vector3(2, 2, 0);
+        bullet.transform.position = transform.position;                                  //Coloca la bala en la posicion del enemigo
         bullet.transform.up = PlayerLocate();                                            //Ajusta el angulo de la bala a la ubicaci�n del player
 
         yield return new WaitForSeconds(intervalo2);

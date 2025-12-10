@@ -1,5 +1,8 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 /*Contenido
 Cortinas para intervalos en ataques enemigos
@@ -9,6 +12,8 @@ Creación de objetos de disparo
 public class EnemyOneAttack : MonoBehaviour
 {
     private GameObject Player;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip e1shotSound;
     [SerializeField] private GameObject BulletPrefabEnemy;    
     [SerializeField] private float intervalo = 1f;
     private bool attacking = false; //Control de bucle, caso contrario las balas no se moverán
@@ -22,6 +27,8 @@ public class EnemyOneAttack : MonoBehaviour
     {
         if (!attacking) 
         {
+            audioSource.PlayOneShot(e1shotSound, 0.25f);
+            //StartCoroutine(PlayAudioForDuration(e1shotSound, 0.0f, 5.3f, 0.4f));
             StartCoroutine(CoroutineAttack());
         }
     }
@@ -29,7 +36,7 @@ public class EnemyOneAttack : MonoBehaviour
     IEnumerator CoroutineAttack()
     {
         attacking = true;
-
+        
         ShootProyectile();
         yield return new WaitForSeconds(intervalo);
 
@@ -49,6 +56,21 @@ public class EnemyOneAttack : MonoBehaviour
         direction = direction.normalized;
 
         return direction;
+    }
+
+    IEnumerator PlayAudioForDuration(AudioClip clip, float start, float duration, float volume)
+    {
+        GameObject tempGO = new GameObject("TempAudio");        //Crea un objeto temporal
+        AudioSource temp = tempGO.AddComponent<AudioSource>();  //Agrega un componente AudioSource al objeto temporal
+
+        temp.volume = volume;
+        temp.clip = clip;
+        temp.time = start;
+        temp.Play();
+
+        yield return new WaitForSeconds(duration);
+
+        Destroy(tempGO);   //Para no ocupar memoria 
     }
 
 }

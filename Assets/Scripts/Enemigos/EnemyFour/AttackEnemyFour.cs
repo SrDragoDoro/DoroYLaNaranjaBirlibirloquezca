@@ -1,9 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AttackEnemyFour : MonoBehaviour
 {
     private GameObject Player;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip e4shotSound;
     [SerializeField] private GameObject BulletPrefabEnemy;
     [SerializeField] private float intervalo = 1f;
     private bool attacking = false; //Control de bucle, caso contrario las balas no se moverán
@@ -17,6 +20,7 @@ public class AttackEnemyFour : MonoBehaviour
     {
         if (!attacking)
         {
+            audioSource.PlayOneShot(e4shotSound, 0.25f);
             StartCoroutine(CoroutineAttack());
         }
     }
@@ -34,7 +38,7 @@ public class AttackEnemyFour : MonoBehaviour
     public void ShootProyectile()
     {
         GameObject bullet = Instantiate(BulletPrefabEnemy, transform);                   //-> Crear bala
-        bullet.transform.localScale = new Vector3(2, 2, 0);
+        bullet.transform.localScale = new Vector3(1.5f, 1.5f, 0);
         bullet.transform.position = transform.position;                                  //Coloca la bala en la posición del enemigo
         bullet.transform.up = PlayerLocate();                                            //Ajusta el ángulo de la bala a la ubicación del player
     }

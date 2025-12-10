@@ -190,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576dbae65f4d530489ab27979f8b4ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: -2203027075217141450}
   enemyDead: {fileID: 940313841791606549, guid: e20c1e6a71889594ca44d2e8c59a7027, type: 3}
   deadSound: {fileID: 8300000, guid: efef1078cf3aa414a9226e201595540a, type: 3}
   lifeEnemy: 4
@@ -207,6 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785caf095547ba440820003bbb81c278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: -2203027075217141450}
+  e1shotSound: {fileID: 8300000, guid: fe858603d54e4134ab5eb6deb110c3e3, type: 3}
   BulletPrefabEnemy: {fileID: 5176413680238030941, guid: 15486a12d7f112747a1979b22b5f8451, type: 3}
   intervalo: 3
 --- !u!82 &-2203027075217141450

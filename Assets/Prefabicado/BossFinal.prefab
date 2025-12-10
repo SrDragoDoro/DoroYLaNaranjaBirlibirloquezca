@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefabEnemy: {fileID: 5043139937888268952, guid: 0ea82e697dabb4e4aab24387b258ce78, type: 3}
-  intervalo: 0.5
+  intervalo: 1.2
   intervalo2: 3
 --- !u!61 &-5540735913430326868
 BoxCollider2D:
