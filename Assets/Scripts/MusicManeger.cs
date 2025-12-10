@@ -7,7 +7,7 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField] private AudioClip[] levelTheme;
 
-    private void Start()
+    void Start() 
     {
         // Evitar duplicados al cambiar de escena
         if (musicManager != null)
@@ -39,6 +39,16 @@ public class MusicManager : MonoBehaviour
     public void StopMusic()
     {
         audioSource.Stop();
+    }
+
+    public void PauseMusic()
+    {
+        audioSource.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        audioSource.UnPause();
     }
 
     public void ChangeVolume(float newVolume)

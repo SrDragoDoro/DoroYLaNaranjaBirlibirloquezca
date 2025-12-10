@@ -11,7 +11,7 @@ public class BossFollow : MonoBehaviour
     [SerializeField] private float speed = 1f;      
                                                
 
-    private void Start()
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }

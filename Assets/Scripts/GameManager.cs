@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     public static int NumberEnemyDeath;  //Contador estatico para el numero de enemigos muertos    
 
     void Start()
-    {
+    {        
+        print("¡Bienvenido a la aventura! presiona F8 para cambatir");
         Loading.SetActive(false);
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         StartCoroutine(Autosave());
