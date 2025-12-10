@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92cd06d7f176dd48863139d963215c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDead: {fileID: 940313841791606549, guid: e20c1e6a71889594ca44d2e8c59a7027, type: 3}
+  deadSound: {fileID: 8300000, guid: efef1078cf3aa414a9226e201595540a, type: 3}
   speed: 1
 --- !u!114 &-7417225253722289960
 MonoBehaviour:

@@ -290892,6 +290892,10 @@ PrefabInstance:
       value: 14.401
       objectReference: {fileID: 0}
     - target: {fileID: 7229527657374726642, guid: 990309967f3758944bfe94633826026a, type: 3}
+      propertyPath: ShotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 30eadf22d8a37a34b81847d449a7ae8b, type: 3}
+    - target: {fileID: 7229527657374726642, guid: 990309967f3758944bfe94633826026a, type: 3}
       propertyPath: ultiPrefab
       value: 
       objectReference: {fileID: 6928533367323206248, guid: bdaa9b9649b9a9044b29386dfecc8060, type: 3}

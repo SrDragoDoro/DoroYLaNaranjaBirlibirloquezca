@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDead: {fileID: 940313841791606549, guid: e20c1e6a71889594ca44d2e8c59a7027, type: 3}
+  deadSound: {fileID: 8300000, guid: efef1078cf3aa414a9226e201595540a, type: 3}
   lifeEnemy: 7
   speed: 2
 --- !u!114 &5688698374977413299

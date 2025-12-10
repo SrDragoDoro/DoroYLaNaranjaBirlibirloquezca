@@ -5,8 +5,12 @@ Creación de proyectiles en la dirección del mouse
 Contenedor de balas
 */
 
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.Rendering;
 
 public enum ShotType 
 { 
@@ -19,12 +23,18 @@ public enum ShotType
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject bulletParent; //Padre de las balas
-    [SerializeField] private GameObject BulletPrefab;  //Hija de las bulletParent
-    [SerializeField] private GameObject BulletPrefab2; //Hija de las bulletParent
-    [SerializeField] private GameObject BulletPrefab3; //Hija de las bulletParent
+        [SerializeField] private GameObject BulletPrefab;  //Hija de las bulletParent
+        [SerializeField] private GameObject BulletPrefab2; //Hija de las bulletParent
+        [SerializeField] private GameObject BulletPrefab3; //Hija de las bulletParent
 
-    [SerializeField] private GameObject ultiPrefab; // Prefab del rayo completo
-   
+    [SerializeField] private GameObject ultiPrefabL; // Ulti/rayo
+    [SerializeField] private GameObject ultiPrefabR; // Ulti/rayo   
+
+
+    [SerializeField] private AudioClip shotSound; 
+    [SerializeField] private AudioClip ultiSound;       
+
+
     private GameObject currentRayL;                  // Rayo actualmente activo, empieza nulo
     private GameObject currentRayR;                  // Rayo actualmente activo, empieza nulo
 
@@ -34,11 +44,12 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform weaponRight;
     [SerializeField] private Transform FirePointRight;
 
+   
+
     public ShotType currentShot = ShotType.Normal; // Tipo de disparo actual
 
     private void Start()
-    {
-
+    {             
         bulletParent = GameObject.Find("BulletContainer");
     }
 
@@ -49,14 +60,36 @@ public class Weapon : MonoBehaviour
         UpdateRayDirection();
 
         if (Input.GetKeyDown(KeyCode.Q))
+        {
+            StartCoroutine(PlayAudioForDuration(ultiSound, 0.2f, 6f, 0.25f));
             Ulti();
+        }            
 
         ShotControll();
         if (Input.GetMouseButtonDown(1))
+        {
+            StartCoroutine(PlayAudioForDuration(shotSound, 0.7f, 0.1f, 0.9f));
             Fire();
-
+        }       
     }
 
+    //Sección audio
+    IEnumerator PlayAudioForDuration(AudioClip clip, float start, float duration, float volume)
+    {
+        GameObject tempGO = new GameObject("TempAudio");        //Crea un objeto temporal
+        AudioSource temp = tempGO.AddComponent<AudioSource>();  //Agrega un componente AudioSource al objeto temporal
+
+        temp.volume = volume;
+        temp.clip = clip;
+        temp.time = start;
+        temp.Play();
+
+        yield return new WaitForSeconds(duration);
+
+        Destroy(tempGO);   //Para no ocupar memoria 
+    }
+
+    //Sección rotación de armas
     private void RotateWeaponsToMouse()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Posición del mouse en el mundo
@@ -70,6 +103,8 @@ public class Weapon : MonoBehaviour
         weaponRight.up = dirRight.normalized;
     }
 
+
+    //Sección intercambio de disparos
     public void Fire()
     {
         switch (currentShot)
@@ -112,7 +147,6 @@ public class Weapon : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3)) print("Disparo triple bloqueado");
     }
 
-
     public Vector2 GetMousePosition()
     {
         Vector2 mousePosition = Input.mousePosition;                                         //-> obtener posicon del mouse respecto a la resolucion de la patanlla
@@ -122,6 +156,8 @@ public class Weapon : MonoBehaviour
         return shootDirection;
     }
 
+
+    //Sección de disparos
     public void ShootProyectile()
     {
         GameObject bulletLeft = Instantiate(BulletPrefab, bulletParent.transform);           //-> Crear 
@@ -173,12 +209,14 @@ public class Weapon : MonoBehaviour
         bulletR.transform.up = newDirR;
     }
 
+
+    //Sección de ulti/rayo
     private void UpdateRayDirection()
     {
         if (currentRayL != null)
         {
             currentRayL.transform.up = GetMousePosition();
-            currentRayL.transform.Rotate(0, 0, -90f); // corregir desfase
+            currentRayL.transform.Rotate(0, 0, -90f); // corrige desfase
         }
 
         if (currentRayR != null)
@@ -191,11 +229,13 @@ public class Weapon : MonoBehaviour
     public void Ulti()
     {
         // Instanciar rayo izquierdo
-        currentRayL = Instantiate(ultiPrefab, weaponLeft);
+        currentRayL = Instantiate(ultiPrefabL, weaponLeft);
         currentRayL.transform.position = FirePointLeft.position;
+        Destroy(currentRayL, 6f); // Duración del rayo
 
         // Instanciar rayo derecho
-        currentRayR = Instantiate(ultiPrefab, weaponRight);
+        currentRayR = Instantiate(ultiPrefabR, weaponRight);
         currentRayR.transform.position = FirePointRight.position;
+        Destroy(currentRayR, 6f); // Duración del rayo
     }
 }

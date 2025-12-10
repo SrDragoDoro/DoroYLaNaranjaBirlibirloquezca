@@ -8,7 +8,6 @@ public class AttackEnemyThree : MonoBehaviour
     [SerializeField] private float intervalo = 1.5f;
     private bool attacking = false; //Control de bucle, caso contrario las balas no se moverán
 
-
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
