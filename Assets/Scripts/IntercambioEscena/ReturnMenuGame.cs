@@ -10,7 +10,7 @@ public class ReturnMenuGame : MonoBehaviour
 
     public void StartGame()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene("Menu");
         }

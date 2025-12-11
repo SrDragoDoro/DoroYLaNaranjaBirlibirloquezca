@@ -19,7 +19,7 @@ public class BossController : MonoBehaviour
 
     void Update()
     {
-        if (LifeEnemy.NumberEnemyDeathGet() >= LifeEnemy.RequiredEnemyDeathGet() && !BossHave) //medoto est�tico para obtener el n�mero de enemigos muertos y el requerido
+        if (LifeEnemy.NumberEnemyDeathGet() >= LifeEnemy.RequiredEnemyDeathGet() && !BossHave) //medoto estatico para obtener el numero de enemigos muertos y el requerido
         {
             Spawner();
             BossHave = true;

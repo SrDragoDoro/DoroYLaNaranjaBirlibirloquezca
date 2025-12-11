@@ -20,20 +20,40 @@ public class EnemyController : MonoBehaviour
     public const int Maxquantrity = 125;               //Cantidad maxima de enemigos en escena
     public static int currentQuantity;                  //Cantidad actual de enemigos en escena
     
-    private bool spawnActivate = false; 
+    private bool spawnActivate = true; 
     private Coroutine currentSpawnRoutine;              //Cortina de refetencia    
 
     private void Start()
     {
+        SpawnControll();
         currentQuantity = 0;        
     }
 
     void Update()
     {        
-        SpawnControll();
+        
+    }
+    public void SpawnControll()
+    {
+        switch (spawnActivate)
+        {
+            case true:
+                currentSpawnRoutine = StartCoroutine(CortinaDeSpawneo()); //Hacemos uso de la referencia (ahora no está vacia)
+                print("Spawner Activado");
+                break;
+            case false:
+                if (currentSpawnRoutine != null)           // Detiene usando la referencia 
+                {
+                    StopCoroutine(currentSpawnRoutine);
+                    currentSpawnRoutine = null;         // Limpia la referencia
+                }
+                print("Spawner Desactivado");
+                break;
+            default:
+        }
     }
 
-    public void SpawnControll()
+    public void SpawnControllManual()
     {
         if (Input.GetKeyDown(KeyCode.F8))
         {
@@ -56,7 +76,7 @@ public class EnemyController : MonoBehaviour
                 default:
             }
         }        
-    }
+    } //Desactivado
 
     IEnumerator CortinaDeSpawneo() //Uso de cortina (en Seg.) para evitar saturación de enemigos
     {
@@ -86,7 +106,7 @@ public class EnemyController : MonoBehaviour
         if (tilemap.HasTile(cellPos))                                                        // Si el tile existe (no es vacío)
         {
             Vector3 worldPos = tilemap.CellToWorld(cellPos);                                 // Convertir a posición del mundo
-            int cantidad = Random.Range(2, 6);
+            int cantidad = Random.Range(2, 10);
             for (int e = 0; e < cantidad; e++) 
             {
                 if (currentQuantity > Maxquantrity)

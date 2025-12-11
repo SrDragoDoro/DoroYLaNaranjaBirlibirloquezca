@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossFollow : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class BossFollow : MonoBehaviour
                 Destroy(death, 1f);
                 print("¡Has derrotado al Boss Final!");
                 print("¡Salvaste tu mundo!");
+                SceneManager.LoadScene("Win");
             }
         }        
     }

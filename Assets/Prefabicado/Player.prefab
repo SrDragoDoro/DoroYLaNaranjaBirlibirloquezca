@@ -109,8 +109,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Statistics:
-    Speed: 6
-    lifePlayer: 150
+    Speed: 9
+    lifePlayer: 200
+  auch: {fileID: 8300000, guid: c7cba5115d592ca4c9cd23f625df8af4, type: 3}
   PlayerWalk: {fileID: 2540231828414736392}
 --- !u!50 &3562712803913055893
 Rigidbody2D:
@@ -214,11 +215,11 @@ MonoBehaviour:
   BulletPrefab: {fileID: 5716509711993211540, guid: 7ee0a6c16e7d50c48baca5198d5ca4d3, type: 3}
   BulletPrefab2: {fileID: 5716509711993211540, guid: 213db17b4534c11408f06e687e97a000, type: 3}
   BulletPrefab3: {fileID: 5716509711993211540, guid: 478cf4a270dc76544b365249e748b85d, type: 3}
-  audioSource: {fileID: 1668726340159542204}
-  shotSound: {fileID: 8300000, guid: 30eadf22d8a37a34b81847d449a7ae8b, type: 3}
-  ultiSound: {fileID: 8300000, guid: 796ee10060d47c04dbebeed76e182686, type: 3}
   ultiPrefabL: {fileID: 6928533367323206248, guid: bdaa9b9649b9a9044b29386dfecc8060, type: 3}
   ultiPrefabR: {fileID: 6928533367323206248, guid: 3059df9099c505640b4d0b1dd0745b60, type: 3}
+  ultiCooldown: 20
+  shotSound: {fileID: 8300000, guid: 30eadf22d8a37a34b81847d449a7ae8b, type: 3}
+  ultiSound: {fileID: 8300000, guid: 796ee10060d47c04dbebeed76e182686, type: 3}
   weaponLeft: {fileID: 7848706259310440701}
   FirePointLeft: {fileID: 1188142060669230259}
   weaponRight: {fileID: 5133605967384209007}

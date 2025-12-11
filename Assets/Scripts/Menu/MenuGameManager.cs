@@ -15,9 +15,9 @@ public class MenuGameManager : MonoBehaviour
 
     public void StartGame()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
         {           
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Controles");
         }        
     }
 }

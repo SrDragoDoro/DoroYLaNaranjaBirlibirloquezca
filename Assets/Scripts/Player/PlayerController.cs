@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 /*Contenido
 Control de movimento (tipo MOBA)
@@ -17,11 +18,17 @@ public struct PlayerStatistics
 public class PlayerController : MonoBehaviour
 {
     public PlayerStatistics Statistics;
-
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip auch;
     [SerializeField] private Animator PlayerWalk;
     private bool move = false; //Simula un swichs de cambio para no hacer un movimiento constante al dar click
     private Vector2 destiny;       
  
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {        
         if (move) //Si es TRUE hay movimiento 
@@ -65,6 +72,7 @@ public class PlayerController : MonoBehaviour
         bool txt = false;
 
         Statistics.lifePlayer -= damage;
+        audioSource.PlayOneShot(auch, 0.5f);
         print("Tu vida actual es: " + Statistics.lifePlayer);
         if (Statistics.lifePlayer <= 0)
         {
@@ -75,6 +83,7 @@ public class PlayerController : MonoBehaviour
                 OhNo.CreateTextFile();
                 txt = true;
             }            
+            SceneManager.LoadScene("GameOver");
         }
     }
 

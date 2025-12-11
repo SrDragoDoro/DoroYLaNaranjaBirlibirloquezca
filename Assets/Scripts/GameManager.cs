@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public struct GameData
 {    
@@ -16,7 +17,8 @@ public class GameManager : MonoBehaviour
     public static int NumberEnemyDeath;  //Contador estatico para el numero de enemigos muertos    
 
     void Start()
-    {        
+    {
+        
         print("¡Bienvenido a la aventura! presiona F8 para cambatir");
         Loading.SetActive(false);
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -52,12 +54,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void winCondition()
+    public void BossCondition()
     {
         if (BossFollow.lifeBoss <= 0 && EnemyController.currentQuantity == EnemyController.Maxquantrity)
         {
             print("¡Ahora debemos acabar con el más fuerte!");
-        }
+        }            
     }
 
     public void SaveSystemControll()

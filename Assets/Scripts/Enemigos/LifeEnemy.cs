@@ -8,7 +8,7 @@ public class LifeEnemy : MonoBehaviour
     [SerializeField] private GameObject enemyDead;
     [SerializeField] private AudioClip deadSound;
     [SerializeField] private int lifeEnemy = 4;    
-    private const int RequiredEnemyDeath = 60; //Numero requerido de enemigos muertos para activar la invocacion del jefe
+    private const int RequiredEnemyDeath = 100; //Numero requerido de enemigos muertos para activar la invocacion del jefe
 
     public void CountEnemyDeath()
     {

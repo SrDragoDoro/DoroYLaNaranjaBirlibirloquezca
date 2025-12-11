@@ -2,57 +2,28 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public static MusicManager musicManager;      // Solo puede haber una instancia de MusicManager
     private AudioSource audioSource;
 
     [SerializeField] private AudioClip[] levelTheme;
 
-    void Start() 
+    void Start()
     {
-        // Evitar duplicados al cambiar de escena
-        if (musicManager != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        musicManager = this; // Asignar la instancia actual
-
-        // Esto permite que la música NO se corte al cambiar de escena
-        DontDestroyOnLoad(gameObject);
-
         audioSource = GetComponent<AudioSource>();
-        PlayMusic(levelTheme);
+
+        if (levelTheme.Length > 0) // Verifica que haya clips en el array
+        {
+            AudioClip randomClip = levelTheme[Random.Range(0, levelTheme.Length)];
+            PlayMusic(randomClip);
+        }
     }
 
-    public void PlayMusic(AudioClip[] clips)
+    private void PlayMusic(AudioClip clip)
     {
-        if (clips == null || clips.Length == 0) return;
+        if (clip == null) return;
 
-        audioSource.clip = clips[Random.Range(0, clips.Length)];
-        audioSource.loop = true;
+        audioSource.clip = clip;
+        audioSource.loop = true;  
         audioSource.volume = 0.45f;
         audioSource.Play();
-    }
-
-    //ELiminar musica
-    public void StopMusic()
-    {
-        audioSource.Stop();
-    }
-
-    public void PauseMusic()
-    {
-        audioSource.Pause();
-    }
-
-    public void ResumeMusic()
-    {
-        audioSource.UnPause();
-    }
-
-    public void ChangeVolume(float newVolume)
-    {
-        audioSource.volume = newVolume;
     }
 }

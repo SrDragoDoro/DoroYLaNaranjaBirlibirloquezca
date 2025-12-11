@@ -29,6 +29,8 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private GameObject ultiPrefabL; // Ulti/rayo
     [SerializeField] private GameObject ultiPrefabR; // Ulti/rayo   
+    private bool ultiAvailable = true;
+    [SerializeField] private float ultiCooldown = 20f;
 
 
     [SerializeField] private AudioClip shotSound; 
@@ -59,10 +61,9 @@ public class Weapon : MonoBehaviour
         RotateWeaponsToMouse();
         UpdateRayDirection();
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && ultiAvailable)
         {
-            StartCoroutine(PlayAudioForDuration(ultiSound, 0.2f, 6f, 0.25f));
-            Ulti();
+            StartCoroutine(UseUlti());            
         }            
 
         ShotControll();
@@ -237,5 +238,18 @@ public class Weapon : MonoBehaviour
         currentRayR = Instantiate(ultiPrefabR, weaponRight);
         currentRayR.transform.position = FirePointRight.position;
         Destroy(currentRayR, 6f); // Duración del rayo
+    }
+
+    IEnumerator UseUlti()
+    {
+        ultiAvailable = false;  // bloquea el uso
+        
+        StartCoroutine(PlayAudioForDuration(ultiSound, 0.2f, 6f, 0.25f));// Sonido
+        Ulti();                                                          // Lanzar ulti
+
+        yield return new WaitForSeconds(ultiCooldown);        
+        ultiAvailable = true;   // se vuelve a habilitar
+        StartCoroutine(PlayAudioForDuration(shotSound, 0.1f, 0.2f, 0.25f));
+        print("Ulti lista!");
     }
 }
