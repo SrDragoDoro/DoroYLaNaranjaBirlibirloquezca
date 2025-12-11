@@ -49620,7 +49620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrackerSettings:
-    BindingMode: 1
+    BindingMode: 4
     PositionDamping: {x: 1, y: 1, z: 1}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
@@ -49679,7 +49679,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 44.28, y: 6.7, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1379160000}
@@ -291305,8 +291305,8 @@ Transform:
   m_GameObject: {fileID: 1379159999}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.66, y: -12.22, z: 10}
-  m_LocalScale: {x: 0.39117512, y: 0.39117512, z: 0.3145}
+  m_LocalPosition: {x: 23.35, y: -12.29, z: 10}
+  m_LocalScale: {x: 0.4597136, y: 0.4597136, z: 0.36960408}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 967931142}

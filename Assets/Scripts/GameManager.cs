@@ -15,11 +15,12 @@ public class GameManager : MonoBehaviour
     private PlayerController playerController;
     public GameData GameData;       
     public static int NumberEnemyDeath;  //Contador estatico para el numero de enemigos muertos    
+    private bool isSaving = false;
 
     void Start()
     {
         
-        print("¡Bienvenido a la aventura! presiona F8 para cambatir");
+        print("¡Bienvenido a la aventura!");
         Loading.SetActive(false);
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         StartCoroutine(Autosave());
@@ -64,10 +65,9 @@ public class GameManager : MonoBehaviour
 
     public void SaveSystemControll()
     {
-        if (Input.GetKeyDown(KeyCode.S)) //Guardar juego
-        {
-            CollectSaveData();
-            SaveSystem.SaveGame(GameData);
+        if (Input.GetKeyDown(KeyCode.S) && !isSaving) //Guardar juego
+        {            
+            StartCoroutine(ManualSave());
         }
 
         if (Input.GetKeyDown(KeyCode.F5)) //Cargar autoguardado juego
@@ -81,6 +81,20 @@ public class GameManager : MonoBehaviour
             GameData = SaveSystem.LoadGame();
             ApplyLoadedData();
         }        
+    }
+
+    IEnumerator ManualSave()
+    {
+        isSaving = true;
+
+        CollectSaveData();
+        SaveSystem.SaveGame(GameData);
+
+        Loading.SetActive(true);
+        yield return new WaitForSeconds(2);
+        Loading.SetActive(false);
+
+        isSaving = false;
     }
 
     IEnumerator Autosave()
